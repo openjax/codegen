@@ -6,11 +6,7 @@
       <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
       <configuration>
         <id>codegen</id>
-        <phases>
-          <phase>codegen</phase>
-        </phases>
         <default-phases>
-          <!--codegen>org.safris.maven.plugin:codegen-maven-plugin:istenum</codegen-->
           <generate-sources>org.safris.maven.plugin:codegen-maven-plugin:istenum</generate-sources>
         </default-phases>
       </configuration>
