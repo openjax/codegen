@@ -109,7 +109,7 @@
   <dependencies>
     <dependency>
       <groupId>org.safris.commons</groupId>
-      <artifactId>search</artifactId>
+      <artifactId>commons-search</artifactId>
       <version>1.0.1</version>
     </dependency>
     <dependency>
