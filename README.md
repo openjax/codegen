@@ -1,4 +1,4 @@
-<img src="http://safris.org/logo.png" align="right"/>
+<img src="https://www.cohesionfirst.org/logo.png" align="right"/>
 ## codegen-maven-plugin<br>![mvn-plugin][mvn-plugin] [![CohesionFirst™][cohesionfirst_badge]][cohesionfirst]
 > Maven Plugin for general code-generation tools
 
