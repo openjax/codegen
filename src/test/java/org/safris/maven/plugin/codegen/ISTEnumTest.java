@@ -19,7 +19,6 @@ package org.safris.maven.plugin.codegen;
 import org.junit.Assert;
 import org.junit.Test;
 import org.safris.commons.lang.Arrays;
-import org.safris.commons.lang.Strings;
 import org.safris.commons.search.ISTEnumUtil;
 import org.safris.commons.test.LoggableTest;
 
@@ -56,14 +55,14 @@ public class ISTEnumTest extends LoggableTest {
     final int[] indices = new int[keywords.length];
     Arrays.fillIncremental(indices, 0);
 
-    String out = "";
+    final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
       final Keyword keyword = keywords[index];
-      out += "\n" + keyword;
+      out.append("\n").append(keyword);
       for (int i = 0; i < keyword.tree.length; i++)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])
-            out += "\n " + Strings.createRepeat(' ', i) + keywords[child].toString().substring(i + 1);
+            out.append("\n ").append(Arrays.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
     }
 
     return out.substring(1);
