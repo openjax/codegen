@@ -115,7 +115,6 @@
     <dependency>
       <groupId>org.safris.commons</groupId>
       <artifactId>commons-search</artifactId>
-      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
