@@ -100,7 +100,7 @@
               <execution>
                 <phase>generate-test-sources</phase>
                 <configuration>
-                  <file>${basedir}/src/test/resources/keywords.txt</file>
+                  <file>src/test/resources/keywords.txt</file>
                   <dir>${project.build.directory}/generated-test-sources/istenum</dir>
                   <className>org.safris.maven.plugin.codegen.Keyword</className>
                 </configuration>
