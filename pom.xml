@@ -77,7 +77,7 @@
                 <configuration>
                   <profiles>
                     <profile>!default</profile>
-                    <profile>integration-test</profile>
+                    <profile>plugin-test</profile>
                   </profiles>
                   <goals>
                     <goal>test</goal>
@@ -90,7 +90,7 @@
       </build>
     </profile>
     <profile>
-      <id>integration-test</id>
+      <id>plugin-test</id>
       <build>
         <plugins>
           <plugin>
