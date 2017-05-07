@@ -30,8 +30,8 @@ The `codegen:istenum` goal is bound to the `generate-sources` phase, and constru
         <goal>istenum</goal>
       </goals>
       <configuration>
-        <file>${basedir}/src/test/resources/keywords.txt</file>
-        <dir>${project.build.directory}/generated-test-sources/istenum</dir>
+        <file>src/test/resources/keywords.txt</file>
+        <dir>generated-test-sources/istenum</dir>
         <className>org.mycompany.Keywords</className>
       </configuration>
     </execution>
