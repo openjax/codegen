@@ -27,6 +27,7 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.safris.commons.lang.Paths;
 import org.safris.commons.search.ISTEnumGenerator;
 import org.safris.maven.common.AdvancedMojo;
 
@@ -46,7 +47,7 @@ public final class ISTEnumGeneratorMojo extends AdvancedMojo {
   private File file;
 
   @Parameter(property = "dir")
-  private File dir;
+  private String dir;
 
   @Parameter(property = "className")
   private String className;
@@ -59,14 +60,15 @@ public final class ISTEnumGeneratorMojo extends AdvancedMojo {
     if (mavenTestSkip && execution.getLifecyclePhase() != null && execution.getLifecyclePhase().contains("test"))
       return;
 
+    final File destDir = Paths.isAbsolute(dir) ? new File(dir) : new File(project.getBuild().getDirectory(), dir);
     try {
-      ISTEnumGenerator.generate(className, inheritsFrom, new File(dir, className.replace('.', '/') + ".java"), file);
+      ISTEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file);
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);
     }
 
-    project.addTestCompileSourceRoot(dir.getAbsolutePath());
-    project.addCompileSourceRoot(dir.getAbsolutePath());
+    project.addTestCompileSourceRoot(destDir.getAbsolutePath());
+    project.addCompileSourceRoot(destDir.getAbsolutePath());
   }
 }
