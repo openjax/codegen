@@ -19,6 +19,7 @@ package org.safris.maven.plugin.codegen;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -29,11 +30,10 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.safris.commons.lang.Paths;
 import org.safris.commons.search.ISTEnumGenerator;
-import org.safris.maven.common.AdvancedMojo;
 
 @Mojo(name = "istenum", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal = "istenum")
-public final class ISTEnumGeneratorMojo extends AdvancedMojo {
+public final class ISTEnumGeneratorMojo extends AbstractMojo {
   @Parameter(defaultValue = "${project}", readonly = true)
   private MavenProject project;
 
