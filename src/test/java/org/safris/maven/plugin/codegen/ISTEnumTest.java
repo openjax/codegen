@@ -20,9 +20,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.safris.commons.lang.Arrays;
 import org.safris.commons.search.ISTEnumUtil;
-import org.safris.commons.test.LoggableTest;
 
-public class ISTEnumTest extends LoggableTest {
+public class ISTEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
     Arrays.fillIncremental(indices, 0);
