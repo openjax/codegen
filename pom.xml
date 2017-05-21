@@ -113,8 +113,8 @@
   </profiles>
   <dependencies>
     <dependency>
-      <groupId>org.safris.commons</groupId>
-      <artifactId>commons-search</artifactId>
+      <groupId>org.safris</groupId>
+      <artifactId>safris-algo</artifactId>
     </dependency>
   </dependencies>
   <repositories>
