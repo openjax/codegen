@@ -18,8 +18,8 @@ package org.libx4j.maven.plugin.codegen;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.lib4j.algo.ISTEnumUtil;
 import org.safris.commons.lang.Arrays;
-import org.safris.commons.search.ISTEnumUtil;
 
 public class ISTEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
