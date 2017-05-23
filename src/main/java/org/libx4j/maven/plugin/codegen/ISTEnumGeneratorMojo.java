@@ -29,7 +29,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.lib4j.algo.ISTEnumGenerator;
-import org.safris.commons.lang.Paths;
+import org.lib4j.lang.Paths;
 
 @Mojo(name = "istenum", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal = "istenum")
