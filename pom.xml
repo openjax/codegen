@@ -102,7 +102,7 @@
                 <configuration>
                   <file>src/test/resources/keywords.txt</file>
                   <dir>generated-test-sources/istenum</dir>
-                  <className>org.safris.maven.plugin.codegen.Keyword</className>
+                  <className>org.libx4j.maven.plugin.codegen.Keyword</className>
                 </configuration>
               </execution>
             </executions>
