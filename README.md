@@ -21,7 +21,7 @@ The `codegen:istenum` goal is bound to the `generate-sources` phase, and constru
 
 ```xml
 <plugin>
-  <groupId>org.lib4jx.maven.plugin</groupId>
+  <groupId>org.libx4j.maven.plugin</groupId>
   <artifactId>codegen-maven-plugin</artifactId>
   <version>1.0.1</version>
   <executions>
