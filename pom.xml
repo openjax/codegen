@@ -37,14 +37,6 @@
   <profiles>
     <profile>
       <id>default</id>
-      <activation>
-        <property>
-          <name>!maven.test.skip</name>
-        </property>
-      </activation>
-      <properties>
-        <maven.test.skip>true</maven.test.skip>
-      </properties>
       <build>
         <plugins>
           <plugin>
@@ -87,6 +79,10 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.libx4j.maven.plugin</groupId>
+            <artifactId>xml-maven-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
