@@ -20,11 +20,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.libx4j.maven</groupId>
+    <groupId>org.lib4j.maven</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.8.1-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.libx4j.maven.plugin</groupId>
+  <groupId>org.lib4j.maven.plugin</groupId>
   <artifactId>codegen-maven-plugin</artifactId>
   <version>1.0.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
@@ -89,7 +89,7 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.libx4j.maven.plugin</groupId>
+            <groupId>org.lib4j.maven.plugin</groupId>
             <artifactId>xml-maven-plugin</artifactId>
           </plugin>
         </plugins>
@@ -100,15 +100,18 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.libx4j.maven.plugin</groupId>
+            <groupId>org.lib4j.maven.plugin</groupId>
             <artifactId>codegen-maven-plugin</artifactId>
             <executions>
               <execution>
+                <goals>
+                  <goal>istenum</goal>
+                </goals>
                 <phase>generate-test-sources</phase>
                 <configuration>
                   <file>src/test/resources/keywords.txt</file>
                   <dir>generated-test-sources/istenum</dir>
-                  <className>org.libx4j.maven.plugin.codegen.Keyword</className>
+                  <className>org.lib4j.maven.plugin.codegen.Keyword</className>
                 </configuration>
               </execution>
             </executions>

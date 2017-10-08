@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.libx4j.maven.plugin.codegen;
+package org.lib4j.maven.plugin.codegen;
 
 import java.io.File;
 import java.io.IOException;
