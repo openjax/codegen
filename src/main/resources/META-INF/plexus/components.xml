@@ -23,7 +23,7 @@
       <configuration>
         <id>codegen</id>
         <default-phases>
-          <generate-sources>org.libx4j.maven.plugin:codegen-maven-plugin:istenum</generate-sources>
+          <generate-sources>org.lib4j.maven.plugin:codegen-maven-plugin:istenum</generate-sources>
         </default-phases>
       </configuration>
     </component>
@@ -37,7 +37,7 @@
           <phase>istenum</phase>
         </phases>
         <default-phases>
-          <istenum>org.libx4j.maven.plugin:codegen-maven-plugin:istenum</istenum>
+          <istenum>org.lib4j.maven.plugin:codegen-maven-plugin:istenum</istenum>
         </default-phases>
       </configuration>
     </component>
