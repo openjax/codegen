@@ -108,13 +108,13 @@
                   <goal>istenum</goal>
                 </goals>
                 <phase>generate-test-sources</phase>
-                <configuration>
-                  <file>src/test/resources/keywords.txt</file>
-                  <dir>generated-test-sources/istenum</dir>
-                  <className>org.lib4j.maven.plugin.codegen.Keyword</className>
-                </configuration>
               </execution>
             </executions>
+            <configuration>
+              <file>src/test/resources/keywords.txt</file>
+              <dir>generated-test-sources/istenum</dir>
+              <className>org.lib4j.maven.plugin.codegen.Keyword</className>
+            </configuration>
           </plugin>
         </plugins>
       </build>
