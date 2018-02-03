@@ -31,28 +31,28 @@ import org.apache.maven.project.MavenProject;
 import org.lib4j.algo.ISTEnumGenerator;
 import org.lib4j.lang.Paths;
 
-@Mojo(name = "istenum", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
-@Execute(goal = "istenum")
+@Mojo(name="istenum", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
+@Execute(goal="istenum")
 public final class ISTEnumGeneratorMojo extends AbstractMojo {
-  @Parameter(defaultValue = "${project}", readonly = true)
+  @Parameter(defaultValue="${project}", readonly=true)
   private MavenProject project;
 
-  @Parameter(defaultValue = "${mojoExecution}", readonly = true)
+  @Parameter(defaultValue="${mojoExecution}", readonly=true)
   private MojoExecution execution;
 
-  @Parameter(property = "maven.test.skip", defaultValue = "false")
+  @Parameter(property="maven.test.skip", defaultValue="false")
   private boolean mavenTestSkip;
 
-  @Parameter(property = "file")
+  @Parameter(property="file")
   private File file;
 
-  @Parameter(property = "dir")
+  @Parameter(property="dir")
   private String dir;
 
-  @Parameter(property = "className")
+  @Parameter(property="className")
   private String className;
 
-  @Parameter(property = "inheritsFrom")
+  @Parameter(property="inheritsFrom")
   private String inheritsFrom;
 
   @Override
