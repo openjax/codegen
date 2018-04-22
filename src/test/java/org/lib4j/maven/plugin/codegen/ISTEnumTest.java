@@ -44,7 +44,7 @@ public class ISTEnumTest {
 
   private static void assertEquals(final Keyword expected, final Keyword actual) {
     if (actual == null)
-      Assert.fail(actual + " == null");
+      Assert.fail("actual == null");
 
     if (expected != actual)
       Assert.fail(actual + " != " + actual);
@@ -65,6 +65,12 @@ public class ISTEnumTest {
     }
 
     return out.substring(1);
+  }
+
+  @Test
+  public void testX() {
+    final String source = "public class Test implements com.logicbig.example.ITest{" + "public void doSomething(){" + "System.out.println(\"testing\");}}";
+    ISTEnum
   }
 
   @Test

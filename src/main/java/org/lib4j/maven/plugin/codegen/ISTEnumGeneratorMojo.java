@@ -16,9 +16,6 @@
 
 package org.lib4j.maven.plugin.codegen;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -30,6 +27,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.lib4j.algo.ISTEnumGenerator;
 import org.lib4j.lang.Paths;
+
+import java.io.File;
+import java.io.IOException;
 
 @Mojo(name="istenum", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="istenum")
@@ -62,7 +62,7 @@ public final class ISTEnumGeneratorMojo extends AbstractMojo {
 
     final File destDir = Paths.isAbsolute(dir) ? new File(dir) : new File(project.getBuild().getDirectory(), dir);
     try {
-      ISTEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file);
+      ISTEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file.toURI().toURL());
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);
