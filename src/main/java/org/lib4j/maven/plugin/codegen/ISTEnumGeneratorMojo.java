@@ -25,7 +25,7 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.lib4j.algo.ISTEnumGenerator;
+import org.fastjax.util.ISTEnumGenerator;
 import org.fastjax.util.Paths;
 
 import java.io.File;
