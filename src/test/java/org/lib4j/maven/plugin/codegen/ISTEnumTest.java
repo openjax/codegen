@@ -19,7 +19,7 @@ package org.lib4j.maven.plugin.codegen;
 import org.junit.Assert;
 import org.junit.Test;
 import org.lib4j.algo.ISTEnumUtil;
-import org.lib4j.util.Arrays;
+import org.fastjax.util.Arrays;
 
 public class ISTEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {

@@ -26,7 +26,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.lib4j.algo.ISTEnumGenerator;
-import org.lib4j.util.Paths;
+import org.fastjax.util.Paths;
 
 import java.io.File;
 import java.io.IOException;
