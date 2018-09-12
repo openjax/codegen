@@ -122,8 +122,8 @@
   </profiles>
   <dependencies>
     <dependency>
-      <groupId>org.lib4j</groupId>
-      <artifactId>lib4j-algo</artifactId>
+      <groupId>org.fastjax</groupId>
+      <artifactId>fastjax-util</artifactId>
     </dependency>
   </dependencies>
 </project>
