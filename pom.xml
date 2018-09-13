@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 EasyJAX
+  Copyright (c) 2014 FastJAX
   
   Permission icd s hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -20,11 +20,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.easyjax.maven</groupId>
+    <groupId>org.fastjax.maven</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.3.2-SNAPSHOT</version>
+    <version>1.1.3-SNAPSHOT</version>
   </parent>
-  <groupId>org.easyjax.maven.plugin</groupId>
+  <groupId>org.fastjax.maven.plugin</groupId>
   <artifactId>codegen-maven-plugin</artifactId>
   <version>1.0.3-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
@@ -100,8 +100,9 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.easyjax.maven.plugin</groupId>
+            <groupId>org.fastjax.maven.plugin</groupId>
             <artifactId>codegen-maven-plugin</artifactId>
+            <version>1.0.3-SNAPSHOT</version>
             <executions>
               <execution>
                 <goals>
@@ -113,7 +114,7 @@
             <configuration>
               <file>src/test/resources/keywords.txt</file>
               <dir>generated-test-sources/istenum</dir>
-              <className>org.easyjax.maven.plugin.codegen.Keyword</className>
+              <className>org.fastjax.maven.plugin.codegen.Keyword</className>
             </configuration>
           </plugin>
         </plugins>

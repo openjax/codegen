@@ -14,12 +14,13 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.easyjax.maven.plugin.codegen;
+package org.fastjax.maven.plugin.codegen;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.fastjax.maven.plugin.codegen.Keyword;
 import org.fastjax.util.Arrays;
 import org.fastjax.util.ISTEnumUtil;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ISTEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
