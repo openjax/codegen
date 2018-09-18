@@ -23,7 +23,7 @@
       <configuration>
         <id>autogen</id>
         <default-phases>
-          <generate-sources>org.fastjax.autogen.radixtree:autogen-maven-plugin:radixtree</generate-sources>
+          <generate-sources>org.fastjax.autogen:autogen-maven-plugin:radixtree</generate-sources>
         </default-phases>
       </configuration>
     </component>
@@ -37,7 +37,7 @@
           <phase>radixtree</phase>
         </phases>
         <default-phases>
-          <radixtree>org.fastjax.autogen.radixtree:autogen-maven-plugin:radixtree</radixtree>
+          <radixtree>org.fastjax.autogen:autogen-maven-plugin:radixtree</radixtree>
         </default-phases>
       </configuration>
     </component>
