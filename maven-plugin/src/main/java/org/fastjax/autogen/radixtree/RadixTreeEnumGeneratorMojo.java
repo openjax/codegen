@@ -14,7 +14,10 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.maven.plugin.codegen;
+package org.fastjax.autogen.radixtree;
+
+import java.io.File;
+import java.io.IOException;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
@@ -25,15 +28,12 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.fastjax.util.ISTEnumGenerator;
+import org.fastjax.autogen.radixtree.RadixTreeEnumGenerator;
 import org.fastjax.util.Paths;
 
-import java.io.File;
-import java.io.IOException;
-
-@Mojo(name="istenum", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
-@Execute(goal="istenum")
-public final class ISTEnumGeneratorMojo extends AbstractMojo {
+@Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
+@Execute(goal="radixtree")
+public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
   @Parameter(defaultValue="${project}", readonly=true)
   private MavenProject project;
 
@@ -62,7 +62,7 @@ public final class ISTEnumGeneratorMojo extends AbstractMojo {
 
     final File destDir = Paths.isAbsolute(dir) ? new File(dir) : new File(project.getBuild().getDirectory(), dir);
     try {
-      ISTEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file.toURI().toURL());
+      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file.toURI().toURL());
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);

@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2016 FastJAX
+  Copyright (c) 2014 FastJAX
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -18,26 +18,26 @@
   <components>
     <component>
       <role>org.apache.maven.lifecycle.Lifecycle</role>
-      <role-hint>codegen</role-hint>
+      <role-hint>autogen</role-hint>
       <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
       <configuration>
-        <id>codegen</id>
+        <id>autogen</id>
         <default-phases>
-          <generate-sources>org.fastjax.maven.plugin:codegen-maven-plugin:istenum</generate-sources>
+          <generate-sources>org.fastjax.autogen.radixtree:autogen-maven-plugin:radixtree</generate-sources>
         </default-phases>
       </configuration>
     </component>
     <component>
       <role>org.apache.maven.lifecycle.Lifecycle</role>
-      <role-hint>codegen</role-hint>
+      <role-hint>autogen</role-hint>
       <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
       <configuration>
-        <id>codegen</id>
+        <id>autogen</id>
         <phases>
-          <phase>istenum</phase>
+          <phase>radixtree</phase>
         </phases>
         <default-phases>
-          <istenum>org.fastjax.maven.plugin:codegen-maven-plugin:istenum</istenum>
+          <radixtree>org.fastjax.autogen.radixtree:autogen-maven-plugin:radixtree</radixtree>
         </default-phases>
       </configuration>
     </component>
