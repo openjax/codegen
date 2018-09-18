@@ -24,7 +24,6 @@
     <artifactId>autogen</artifactId>
     <version>0.2.3-SNAPSHOT</version>
   </parent>
-  <groupId>org.fastjax.autogen</groupId>
   <artifactId>autogen-radixtree</artifactId>
   <name>${project.groupId}:${project.artifactId}</name>
   <properties>
