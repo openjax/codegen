@@ -1,37 +1,37 @@
 <img src="https://images.cooltext.com/5195723.png" align="right">
 
-## codegen-maven-plugin<br>![mvn-plugin][mvn-plugin] <a href="https://www.fastjax.org/"><img src="https://img.shields.io/badge/FastJAX--blue.svg"></a>
+## autogen-maven-plugin<br>![mvn-plugin][mvn-plugin] <a href="https://www.fastjax.org/"><img src="https://img.shields.io/badge/FastJAX--blue.svg"></a>
 > Maven Plugin for general code-generation tools
 
 ### Introduction
 
-The `codegen-maven-plugin` plugin is used for general code-generation tools.
+The `autogen-maven-plugin` plugin is used for general code-generation tools.
 
 ### Goals Overview
 
-* [`codegen:istenum`](#codegenistenum) constructs an Incremental Search Tree enum class.
+* [`autogen:radixtree`](#autogenradixtree) constructs an Incremental Search Tree enum class.
 
 ### Usage
 
-#### `codegen:istenum`
+#### `autogen:radixtree`
 
-The `codegen:istenum` goal is bound to the `generate-sources` phase, and constructs a class with a statically defined Incremental Search Tree enum from a file with a sorted newline-delimited list of keywords.
+The `autogen:radixtree` goal is bound to the `generate-sources` phase, and constructs a class with a statically defined Incremental Search Tree enum from a file with a sorted newline-delimited list of keywords.
 
 ##### Example 1
 
 ```xml
 <plugin>
-  <groupId>org.fastjax.maven.plugin</groupId>
-  <artifactId>codegen-maven-plugin</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <groupId>org.fastjax.autogen</groupId>
+  <artifactId>autogen-maven-plugin</artifactId>
+  <version>0.2.3-SNAPSHOT</version>
   <executions>
     <execution>
       <goals>
-        <goal>istenum</goal>
+        <goal>radixtree</goal>
       </goals>
       <configuration>
         <file>src/test/resources/keywords.txt</file>
-        <dir>generated-test-sources/istenum</dir>
+        <dir>generated-test-sources/radixtree</dir>
         <className>org.mycompany.Keywords</className>
       </configuration>
     </execution>
