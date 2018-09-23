@@ -6,7 +6,7 @@ AutoGen is a collection of modules that utilize the [Code Generation][codegen] p
 
 ## Modules
 
-* **[radixtree][radixtree]**: Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized look-up operations.
+* **[radixtree][radixtree]**: Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations.
 * **[autogen-maven-plugin][maven-plugin]**: Maven plugin for AutoGen patterns in this project.
 
 ### License
