@@ -1,6 +1,6 @@
 # AutoGen
 
-**Auto-generated code patterns for better language cohesion, and faster runtime performance.**
+**Auto-generated code patterns for better language cohesion, and faster runtime performance**
 
 AutoGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
 

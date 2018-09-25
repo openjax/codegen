@@ -17,6 +17,7 @@
 package org.fastjax.autogen.radixtree;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -28,7 +29,6 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.fastjax.autogen.radixtree.RadixTreeEnumGenerator;
 import org.fastjax.util.Paths;
 
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
@@ -62,7 +62,7 @@ public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
 
     final File destDir = Paths.isAbsolute(dir) ? new File(dir) : new File(project.getBuild().getDirectory(), dir);
     try {
-      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), file.toURI().toURL());
+      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), new FileReader(file));
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);

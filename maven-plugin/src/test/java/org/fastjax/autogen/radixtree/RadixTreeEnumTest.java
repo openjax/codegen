@@ -36,8 +36,9 @@ public class RadixTreeEnumTest {
         if (i < keyword.tree.length)
           indices = keyword.tree[i];
       }
-      else if (keyword.toString().length() <= i || keyword.toString().charAt(i) != ch)
+      else if (keyword.toString().length() <= i || keyword.toString().charAt(i) != ch) {
         return null;
+      }
     }
 
     return keyword;
@@ -58,7 +59,7 @@ public class RadixTreeEnumTest {
     final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
       final Keyword keyword = keywords[index];
-      out.append("\n").append(keyword);
+      out.append('\n').append(keyword);
       for (int i = 0; i < keyword.tree.length; i++)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])

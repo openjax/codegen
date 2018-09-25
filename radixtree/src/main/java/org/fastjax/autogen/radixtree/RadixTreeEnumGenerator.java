@@ -18,8 +18,7 @@ package org.fastjax.autogen.radixtree;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
@@ -39,19 +38,26 @@ public class RadixTreeEnumGenerator {
     }
   }
 
-  public static void generate(final String className, final String inheritsFrom, final File outFile, final URL tokensURL) throws IOException {
+  public static void generate(final String className, final File outFile, final Reader reader) throws IOException {
+    generate(className, null, outFile, reader);
+  }
+
+  public static void generate(final String className, final String inheritsFrom, final File outFile, final Reader reader) throws IOException {
     final File parentFile = outFile.getParentFile();
     if (!parentFile.exists())
       if (!parentFile.mkdirs())
         throw new IllegalStateException("Unable to create output path: " + parentFile.getAbsolutePath());
 
-    final String in;
-    try (final InputStream tokens = tokensURL.openStream()) {
-      in = new String(tokens.readAllBytes()).replaceAll("([ \t\n\r\f]){2,}", " ");
-    }
+    final StringBuilder builder = new StringBuilder();
+    for (int ch; (ch = reader.read()) != -1; builder.append((char)ch));
 
-    final String[] tokens = in.split("[ \t\n\r\f]");
+    final String in = builder.toString().replaceAll("\\s{1,}", " ");
+    final String[] tokens = in.split(" ");
     RadixTreeEnumGenerator.generate(className, inheritsFrom, outFile, tokens);
+  }
+
+  public static void generate(final String className, final File outFile, final String[] tokens) throws IOException {
+    generate(className, null, outFile, tokens);
   }
 
   public static void generate(final String className, final String inheritsFrom, final File outFile, final String[] tokens) throws IOException {

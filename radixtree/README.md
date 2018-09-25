@@ -1,6 +1,6 @@
 # RadixTree
 
-**Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations.**
+**Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations**
 
 ## Usage
 
@@ -14,7 +14,7 @@ With the generated `Enum`, a program can thereafter perform lookups for matching
 
 ## Performance
 
-lookup operations are performed incrementally. Each next character narrows the search space of the matching enums by stepping deeper into the radix tree. At each character input, a binary search is performed for the terms that have been narrowed by the previous character. Each Radix Tree `Enum` therefore has different specific performance, because it is based on the chosen keywords.
+Lookup operations are performed incrementally. Each next character narrows the search space of the matching enums by stepping deeper into the radix tree. At each character input, a binary search is performed for the terms that have been narrowed by the previous character. Each Radix Tree `Enum` therefore has different specific performance, because it is based on the chosen keywords.
 
 ```
   Let: nᵢ = average number of keyword nodes at depth 𝖎
@@ -31,9 +31,31 @@ The next character lookup performs in `O(log n₃)` time, and so on...
 For large lists of keywords, each character lookup after the first is performed in `O(log nᵣ₊₁)` time. Each next lookup reduces with the subsequent lookup by the square, on average. As 𝖎 approaches 𝖗, Big-O complexity approaches constant time. The performance of whole-word lookups for large lists can be expressed as:
 
 ```
-  ᵣ                   ᵣ
-  ∑ O(log nᵢ) = O(log ∏ nᵢ) ≈ O(log n₀)
- ⁱ⁼⁰                 ⁱ⁼⁰
+                                                        ᵣ
+  O(log n₀) + O(log n₁) + O(log n₂) + ... + O(log nᵣ) = ∑ O(log nᵢ)
+                                                       ⁱ⁼⁰
+```
+
+We can infer that:
+
+```
+  O(log n₀) > O(log n₁) > O(log n₂) > ... > O(log nᵣ)
+```
+
+Which allows us to estimate:
+
+```
+  ᵣ
+  ∑ O(log nᵢ) < 𝖗 * O(log n₀)
+ ⁱ⁼⁰
+```
+
+Since `𝖗` is a constant, it can be removed.
+
+```
+  ᵣ
+  ∑ O(log nᵢ) ≈ O(log n₀)
+ ⁱ⁼⁰
 ```
 
 ### Small Lists
@@ -46,7 +68,54 @@ For small lists of keywords, the same rules apply as for large lists. For small 
 
 ## Usage
 
-TODO
+### Generation of `RadixTreeEnum`
+Suppose you want to create a `RadixTreeEnum` from the keywords in the illustration above.
+
+```java
+  final String className = "Keyword";
+  final File outFile = new File(className + ".java");
+  final String[] keywords = new String[] {"romane", "romanus", "romulus", "rubens", "ruber", "rubicon", "rubicundus"};
+  RadixTreeEnumGenerator.generate(className, outFile, keywords);
+```
+
+The `RadixTreeEnumGenerator.generate(...)` method will build the `RadixTreeEnum`, and will write it to `Keyword.java`.
+
+### Lookup into `RadixTreeEnum`
+
+Suppose you want to look up the `Keyword` matching the string `"rubens"`:
+
+```java
+  final String string = "rubens";
+  RadixTree word = null;
+  for (int i = 0; i < string.length(); ++i) {
+    final char ch = string.charAt(i);
+    word = RadixTree.findNext(word, i, ch);
+    System.out.println(ch + ": " + word);
+  }
+```
+
+This code shows how the generated `RadixTree` enum can be used to perform lookups for matching values, character-by-character. The output of this code will be:
+
+```
+r: rubens
+u: rubens
+b: ruber
+e: ruber
+n: rubens
+s: rubens
+```
+
+The output shows that `RadixTree.RUBENS` was in fact matched from the first character lookup, which supports the `O(log n₀)` [performance estimate](#performance).
+
+### `autogen-maven-plugin`
+
+The [`autogen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 ### License
 
