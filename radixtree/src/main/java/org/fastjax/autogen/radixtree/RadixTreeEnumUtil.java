@@ -17,18 +17,17 @@
 package org.fastjax.autogen.radixtree;
 
 public final class RadixTreeEnumUtil {
-  public static int binarySearch(final Enum<?>[] full, final int[] partial, final char key, final int index) {
+  public static int binarySearch(final Enum<?>[] word, final int[] tree, final char ch, final int i) {
     int low = 0;
-    int high = partial.length - 1;
+    int high = tree.length - 1;
 
     while (low <= high) {
-      int mid = (low + high) >>> 1;
-      final String name = full[partial[mid]].toString();
-      char midVal = index < name.length() ? name.charAt(index) : ' ';
-
-      if (midVal < key)
+      final int mid = (low + high) >>> 1;
+      final String name = word[tree[mid]].toString();
+      final char midVal = i < name.length() ? name.charAt(i) : ' ';
+      if (midVal < ch)
         low = mid + 1;
-      else if (midVal > key)
+      else if (midVal > ch)
         high = mid - 1;
       else
         return mid; // key found
