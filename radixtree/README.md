@@ -8,9 +8,11 @@ This module takes a list of keywords as an input, and produces a Java `Enum` tha
 
 With the generated `Enum`, a program can thereafter perform lookups for matching keywords, character by character. Each next character narrows the search space of the matching enums by stepping deeper into the radix tree.
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png"/>
-</p>
+<a name="illustration">
+  <p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png"/>
+  </p>
+</a>
 
 ## Performance
 
@@ -69,7 +71,7 @@ For small lists of keywords, the same rules apply as for large lists. For small 
 ## Usage
 
 ### Generation of `RadixTreeEnum`
-Suppose you want to create a `RadixTreeEnum` from the keywords in the illustration above.
+Suppose you want to create a `RadixTreeEnum` from the keywords in the [illustration above](#illustration).
 
 ```java
   final String className = "Keyword";
