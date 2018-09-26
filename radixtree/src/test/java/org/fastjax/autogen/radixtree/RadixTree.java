@@ -11,7 +11,7 @@ public enum RadixTree {
 
   private static final int[] root = new int[] {0, 1, 2, 3, 4, 5, 6};
   private final java.lang.String token;
-  private final int[][] tree;
+  final int[][] tree;
 
   RadixTree(final java.lang.String token, final int[][] tree) {
     this.token = token;

@@ -153,7 +153,7 @@ public class RadixTreeEnumGenerator {
 
     code.append(root.substring(2)).append("};\n");
     code.append("  private final ").append(String.class.getName()).append(" token;\n");
-    code.append("  private final int[][] tree;\n\n");
+    code.append("  final int[][] tree;\n\n");
     code.append("  ").append(enumName).append("(final ").append(String.class.getName()).append(" token, final int[][] tree) {\n");
     code.append("    this.token = token;\n");
     code.append("    this.tree = tree;\n");
