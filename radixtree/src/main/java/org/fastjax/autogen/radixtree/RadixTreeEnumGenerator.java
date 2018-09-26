@@ -152,24 +152,24 @@ public class RadixTreeEnumGenerator {
       root.append(", ").append(i);
 
     code.append(root.substring(2)).append("};\n");
-    code.append("  public final ").append(String.class.getName()).append(" token;\n");
-    code.append("  protected final int[][] tree;\n\n");
+    code.append("  private final ").append(String.class.getName()).append(" token;\n");
+    code.append("  private final int[][] tree;\n\n");
     code.append("  ").append(enumName).append("(final ").append(String.class.getName()).append(" token, final int[][] tree) {\n");
     code.append("    this.token = token;\n");
     code.append("    this.tree = tree;\n");
     code.append("  }\n\n");
 
-    code.append("  public static ").append(enumName).append(" findNext(final ").append(enumName).append(" word, int position, final char ch) {\n");
+    code.append("  public static ").append(enumName).append(" findNext(final ").append(enumName).append(" previous, final int position, final char ch) {\n");
     code.append("    if (position == 0) {\n");
-    code.append("      final int found = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), ").append(enumName).append(".root, ch, position);\n");
-    code.append("      return found < 0 ? null : ").append(enumName).append(".values()[found];\n");
+    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), ").append(enumName).append(".root, ch, position);\n");
+    code.append("      return index < 0 ? null : ").append(enumName).append(".values()[index];\n");
     code.append("    }\n\n");
-    code.append("    if (position <= word.tree.length) {\n");
-    code.append("      final int[] tree = word.tree[position - 1];\n");
-    code.append("      final int found = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), tree, ch, position);\n");
-    code.append("      return found < 0 ? null : ").append(enumName).append(".values()[tree[found]];\n");
+    code.append("    if (position <= previous.tree.length) {\n");
+    code.append("      final int[] tree = previous.tree[position - 1];\n");
+    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), tree, ch, position);\n");
+    code.append("      return index < 0 ? null : ").append(enumName).append(".values()[tree[index]];\n");
     code.append("    }\n\n");
-    code.append("    return word.token.length() <= position || word.token.charAt(position) != ch ? null : word;\n");
+    code.append("    return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;\n");
     code.append("  }\n\n");
 
     code.append("  @").append(Override.class.getName()).append("\n");

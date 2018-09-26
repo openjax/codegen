@@ -56,27 +56,27 @@ public enum Keyword {
   WHILE("while", new int[][] {{52}});
 
   private static final int[] root = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52};
-  public final java.lang.String token;
-  protected final int[][] tree;
+  private final java.lang.String token;
+  private final int[][] tree;
 
   Keyword(final java.lang.String token, final int[][] tree) {
     this.token = token;
     this.tree = tree;
   }
 
-  public static Keyword findNext(final Keyword word, int position, final char ch) {
+  public static Keyword findNext(final Keyword previous, final int position, final char ch) {
     if (position == 0) {
-      final int found = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), Keyword.root, ch, position);
-      return found < 0 ? null : Keyword.values()[found];
+      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), Keyword.root, ch, position);
+      return index < 0 ? null : Keyword.values()[index];
     }
 
-    if (position <= word.tree.length) {
-      final int[] tree = word.tree[position - 1];
-      final int found = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), tree, ch, position);
-      return found < 0 ? null : Keyword.values()[tree[found]];
+    if (position <= previous.tree.length) {
+      final int[] tree = previous.tree[position - 1];
+      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), tree, ch, position);
+      return index < 0 ? null : Keyword.values()[tree[index]];
     }
 
-    return word.token.length() <= position || word.token.charAt(position) != ch ? null : word;
+    return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;
   }
 
   @java.lang.Override

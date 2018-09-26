@@ -33,7 +33,7 @@ public final class RadixTreeEnumUtil {
         return mid; // key found
     }
 
-    return -(low + 1); // key not found.
+    return -1 - low; // key not found.
   }
 
   private RadixTreeEnumUtil() {

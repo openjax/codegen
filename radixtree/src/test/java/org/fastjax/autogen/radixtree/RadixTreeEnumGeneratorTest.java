@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 
 public class RadixTreeEnumGeneratorTest {
   private static final Logger logger = LoggerFactory.getLogger(RadixTreeEnumGeneratorTest.class);
-  private static final File destDir = new File("target/generated-test-sources/radixtree/");
+  private static final File destDir = new File("target/generated-test-sources/radixtree");
 
   private static void assertSource(final Class<?> enumClass, final File outFile) throws IOException {
     final String expected = new String(Files.readAllBytes(new File("src/test/java", enumClass.getName().replace('.', '/') + ".java").toPath()));
@@ -39,20 +39,31 @@ public class RadixTreeEnumGeneratorTest {
     assertEquals(expected, actual);
   }
 
-  private static void assertLookup(final Enum<?> keyword, final String string) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-    final Method findNext = keyword.getClass().getMethod("findNext", keyword.getClass(), int.class, char.class);
-    Enum<?> word = null;
-    for (int i = 0; i < string.length(); ++i) {
-      final char ch = string.charAt(i);
-      word = (Enum<?>)findNext.invoke(null, word, i, ch);
-      logger.info(ch + ": " + word);
-    }
+  private static void assertLookup(final Enum<?> keyword, final String string) {
+    assertLookup(keyword.getClass(), keyword, string);
+  }
 
-    assertEquals(keyword, word);
+  private static void assertLookup(final Class<?> enumClass, final Enum<?> keyword, final String string) {
+    try {
+      final Method findNext = enumClass.getMethod("findNext", enumClass, int.class, char.class);
+      Enum<?> word = null;
+      for (int i = 0; i < string.length(); ++i) {
+        final char ch = string.charAt(i);
+        word = (Enum<?>)findNext.invoke(null, word, i, ch);
+        logger.info(ch + ": " + word);
+        if (word == null)
+          break;
+      }
+
+      assertEquals(keyword, word);
+    }
+    catch (final IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Test
-  public void testRadixTree() throws IllegalAccessException, InvocationTargetException, IOException, NoSuchMethodException {
+  public void testRadixTree() throws IOException {
     final String packageName = getClass().getPackageName();
     final String className = packageName + ".RadixTree";
     final File outFile = new File(destDir, className.replace('.', '/') + ".java");
@@ -64,10 +75,12 @@ public class RadixTreeEnumGeneratorTest {
     assertLookup(RadixTree.RUBENS, "rubens");
     assertLookup(RadixTree.ROMULUS, "romulus");
     assertLookup(RadixTree.RUBICUNDUS, "rubicundus");
+
+    assertLookup(RadixTree.class, null, "rubber");
   }
 
   @Test
-  public void testKeywords() throws IllegalAccessException, InvocationTargetException, IOException, NoSuchMethodException {
+  public void testKeywords() throws IOException {
     final String packageName = getClass().getPackageName();
     final String className = packageName + ".Keyword";
     final File outFile = new File(destDir, className.replace('.', '/') + ".java");
@@ -79,5 +92,7 @@ public class RadixTreeEnumGeneratorTest {
     assertLookup(Keyword.ABSTRACT, "abstract");
     assertLookup(Keyword.STRICTFP, "strictfp");
     assertLookup(Keyword.WHILE, "while");
+
+    assertLookup(Keyword.class, null, "willy");
   }
 }

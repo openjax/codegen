@@ -10,27 +10,27 @@ public enum RadixTree {
   RUBICUNDUS("rubicundus", new int[][] {{0, 1, 2, 3, 4, 5, 6}, {3, 4, 5, 6}, {3, 4, 5, 6}, {5, 6}, {5, 6}, {6}});
 
   private static final int[] root = new int[] {0, 1, 2, 3, 4, 5, 6};
-  public final java.lang.String token;
-  protected final int[][] tree;
+  private final java.lang.String token;
+  private final int[][] tree;
 
   RadixTree(final java.lang.String token, final int[][] tree) {
     this.token = token;
     this.tree = tree;
   }
 
-  public static RadixTree findNext(final RadixTree word, int position, final char ch) {
+  public static RadixTree findNext(final RadixTree previous, final int position, final char ch) {
     if (position == 0) {
-      final int found = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), RadixTree.root, ch, position);
-      return found < 0 ? null : RadixTree.values()[found];
+      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), RadixTree.root, ch, position);
+      return index < 0 ? null : RadixTree.values()[index];
     }
 
-    if (position <= word.tree.length) {
-      final int[] tree = word.tree[position - 1];
-      final int found = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), tree, ch, position);
-      return found < 0 ? null : RadixTree.values()[tree[found]];
+    if (position <= previous.tree.length) {
+      final int[] tree = previous.tree[position - 1];
+      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), tree, ch, position);
+      return index < 0 ? null : RadixTree.values()[tree[index]];
     }
 
-    return word.token.length() <= position || word.token.charAt(position) != ch ? null : word;
+    return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;
   }
 
   @java.lang.Override
