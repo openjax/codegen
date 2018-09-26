@@ -88,15 +88,17 @@ Suppose you want to look up the `Keyword` matching the string `"rubens"`:
 
 ```java
   final String string = "rubens";
-  RadixTree word = null;
+  Keyword word = null;
   for (int i = 0; i < string.length(); ++i) {
     final char ch = string.charAt(i);
-    word = RadixTree.findNext(word, i, ch);
+    word = Keyword.findNext(word, i, ch);
     System.out.println(ch + ": " + word);
+    if (word == null)
+      break; // The tree does not contain the string
   }
 ```
 
-This code shows how the generated `RadixTree` enum can be used to perform lookups for matching values, character-by-character. The output of this code will be:
+This code shows how the generated `Keyword` enum can be used to perform lookups for matching values, character-by-character. The output of this code will be:
 
 ```
 r: rubens
@@ -107,7 +109,7 @@ n: rubens
 s: rubens
 ```
 
-The output shows that `RadixTree.RUBENS` was in fact matched from the first character lookup, which supports the `O(log n₀)` [performance estimate](#performance).
+The output shows that `Keyword.RUBENS` was in fact matched from the first character lookup, which supports the `O(log n₀)` [performance estimate](#performance).
 
 ### `autogen-maven-plugin`
 
