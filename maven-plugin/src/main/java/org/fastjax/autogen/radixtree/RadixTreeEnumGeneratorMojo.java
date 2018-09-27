@@ -43,13 +43,13 @@ public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
   @Parameter(property="maven.test.skip", defaultValue="false")
   private boolean mavenTestSkip;
 
-  @Parameter(property="file")
-  private File file;
+  @Parameter(property="inFile", required=true)
+  private File inFile;
 
-  @Parameter(property="dir")
-  private String dir;
+  @Parameter(property="outDir")
+  private String outDir;
 
-  @Parameter(property="className")
+  @Parameter(property="className", required=true)
   private String className;
 
   @Parameter(property="inheritsFrom")
@@ -60,9 +60,9 @@ public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
     if (mavenTestSkip && execution.getLifecyclePhase() != null && execution.getLifecyclePhase().contains("test"))
       return;
 
-    final File destDir = Paths.isAbsolute(dir) ? new File(dir) : new File(project.getBuild().getDirectory(), dir);
+    final File destDir = outDir == null ? new File("").getAbsoluteFile() : Paths.isAbsolute(outDir) ? new File(outDir) : new File(project.getBuild().getDirectory(), outDir);
     try {
-      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), new FileReader(file));
+      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), new FileReader(inFile));
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);

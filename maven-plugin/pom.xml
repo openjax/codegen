@@ -108,8 +108,8 @@
               </execution>
             </executions>
             <configuration>
-              <file>src/test/resources/keywords.txt</file>
-              <dir>generated-test-sources/autogen</dir>
+              <inFile>src/test/resources/keywords.txt</inFile>
+              <outDir>generated-test-sources/autogen</outDir>
               <className>org.fastjax.autogen.radixtree.Keyword</className>
             </configuration>
           </plugin>

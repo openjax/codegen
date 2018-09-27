@@ -72,8 +72,8 @@ public class RadixTreeEnumGenerator {
 
   private RadixTreeEnumGenerator(final String className, final String inheritsFrom, final String[] tokens) {
     final int lastDot = className.lastIndexOf('.');
-    this.pkg = className.substring(0, lastDot);
-    this.enumName = className.substring(lastDot + 1);
+    this.pkg = lastDot == -1 ? null : className.substring(0, lastDot);
+    this.enumName = lastDot == -1 ? className : className.substring(lastDot + 1);
     this.inheritsFrom = inheritsFrom;
     this.words = new Word[tokens.length];
     Arrays.sort(tokens);
@@ -143,7 +143,11 @@ public class RadixTreeEnumGenerator {
       outer.append(",\n  ").append(word.toString().toUpperCase()).append("(\"").append(word.name).append("\", new int[][] {").append(x.substring(2)).append("})");
     }
 
-    final StringBuilder code = new StringBuilder("package ").append(pkg).append(";\n\npublic enum ").append(enumName);
+    final StringBuilder code = new StringBuilder();
+    if (pkg != null)
+      code.append("package ").append(pkg).append(";\n\n");
+
+    code.append("public enum ").append(enumName);
     code.append(inheritsFrom != null ? " implements " + inheritsFrom + " {\n" : " {\n");
     code.append(outer.substring(2)).append(";\n\n");
     code.append("  private static final int[] root = new int[] {");

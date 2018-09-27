@@ -1,23 +1,32 @@
-<img src="https://images.cooltext.com/5195723.png" align="right">
+# AutoGen Maven Plugin
 
-## autogen-maven-plugin<br>![mvn-plugin][mvn-plugin] <a href="https://www.fastjax.org/"><img src="https://img.shields.io/badge/FastJAX--blue.svg"></a>
-> Maven Plugin for general code-generation tools
+**Auto-generate code during the Maven build lifecycle**
 
-### Introduction
-
-The `autogen-maven-plugin` plugin is used for general code-generation tools.
+The AutoGen Plugin is used to execute auto-generation tools defined in [AutoGen](..) during the Maven build lifecycle, in a phase such as `generate-sources` or `generate-test-sources`.
 
 ### Goals Overview
 
-* [`autogen:radixtree`](#autogenradixtree) constructs an Incremental Search Tree enum class.
+The AutoGen Plugin has one goal. The goals are bound to their proper phases within the Maven Lifecycle, and can be automatically executed during their respective phases with the use of `<extensions>true</extensions>` in the plugin descriptor.
+
+* [`autogen:radixtree`](#autogenradixtree) is bound to the `generate-sources` phase, and is used to generate `RadixTreeEnum` source files.
 
 ### Usage
 
 #### `autogen:radixtree`
 
-The `autogen:radixtree` goal is bound to the `generate-sources` phase, and constructs a class with a statically defined Incremental Search Tree enum from a file with a sorted newline-delimited list of keywords.
+The `autogen:radixtree` goal is bound to the `generate-sources` phase, and is used to generate `RadixTreeEnum` source files.
 
-##### Example 1
+### Executing the AutoGen Plugin
+
+To execute the plugin from the command line, the following command can be used:
+
+```bash
+mvn org.fastjax.autogen:autogen-maven-plugin:<goal> -DinFile=<inFile> -DclassName=<className> -DoutDir=[outDir] -DinheritsFrom=[inheritsFrom]
+```
+
+### Configuring the AutoGen Plugin
+
+To configure the plugin in your POM, the following is an example of the plugin descriptor:
 
 ```xml
 <plugin>
@@ -29,10 +38,11 @@ The `autogen:radixtree` goal is bound to the `generate-sources` phase, and const
       <goals>
         <goal>radixtree</goal>
       </goals>
+      <phase>generate-sources</phase>
       <configuration>
-        <file>src/test/resources/keywords.txt</file>
-        <dir>generated-test-sources/radixtree</dir>
-        <className>org.mycompany.Keywords</className>
+        <inFile>src/test/resources/keywords.txt</inFile>
+        <outDir>generated-sources/radixtree</outDir>
+        <className>org.example.Keyword</className>
       </configuration>
     </execution>
   </executions>
@@ -41,17 +51,15 @@ The `autogen:radixtree` goal is bound to the `generate-sources` phase, and const
 
 #### Configuration Parameters
 
-| Name            | Type    | Use      | Description                                                                 |
-|:----------------|:--------|:---------|:----------------------------------------------------------------------------|
-| `/file`         | String  | Required | File containing sorted newline-delimited list of seed keywords.             |
-| `/dir`          | String  | Required | Destination directory of generated enum.                                    |
-| `/className`    | String  | Required | Name of class of generated enum.                                            |
-| `/inheritsFrom` | String  | Optional | Name of class of the generated enum must inherit from. **Default:** `null`. |
+| **Configuration**          | **Property**           | **Type**          | **Use**            | **Description**                                                                    |
+|:---------------------------|:-----------------------|:------------------|:-------------------|:-----------------------------------------------------------------------------------|
+| `<inFile>`                 | inFile                 | String            | Required           | File containing sorted newline-delimited list of seed keywords.                    |
+| `<outDir>`<br>&nbsp;       | outDir<br>&nbsp;       | String<br>&nbsp;  | Optional<br>&nbsp; | Destination directory of generated enum.<br>**Default:** `project.basedir`.        |
+| `<className>`              | className              | String            | Required           | Class name of generated enum.                                                      |
+| `<inheritsFrom>`<br>&nbsp; | inheritsFrom<br>&nbsp; | String<br>&nbsp;  | Optional<br>&nbsp; | Interface class name the generated enum must inherit from.<br>**Default:** `null`. |
 
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
-
-<a href="http://cooltext.com" target="_top"><img src="https://cooltext.com/images/ct_pixel.gif" width="80" height="15" alt="Cool Text: Logo and Graphics Generator" border="0" /></a>
 
 [mvn-plugin]: https://img.shields.io/badge/mvn-plugin-lightgrey.svg
