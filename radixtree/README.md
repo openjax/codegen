@@ -2,7 +2,7 @@
 
 **Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations**
 
-## Usage
+## Introduction
 
 This module takes a list of keywords as an input, and produces a Java `Enum` that allows incremental, optimized lookup operations.
 
