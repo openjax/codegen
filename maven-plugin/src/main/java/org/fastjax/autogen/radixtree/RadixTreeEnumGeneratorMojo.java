@@ -20,34 +20,19 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
-import org.fastjax.util.Paths;
+import org.fastjax.maven.mojo.GeneratorMojo;
 
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="radixtree")
-public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
-  @Parameter(defaultValue="${project}", readonly=true)
-  private MavenProject project;
-
-  @Parameter(defaultValue="${mojoExecution}", readonly=true)
-  private MojoExecution execution;
-
-  @Parameter(property="maven.test.skip", defaultValue="false")
-  private boolean mavenTestSkip;
-
+public final class RadixTreeEnumGeneratorMojo extends GeneratorMojo {
   @Parameter(property="inFile", required=true)
   private File inFile;
-
-  @Parameter(property="outDir")
-  private String outDir;
 
   @Parameter(property="className", required=true)
   private String className;
@@ -56,19 +41,12 @@ public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
   private String inheritsFrom;
 
   @Override
-  public void execute() throws MojoExecutionException, MojoFailureException {
-    if (mavenTestSkip && execution.getLifecyclePhase() != null && execution.getLifecyclePhase().contains("test"))
-      return;
-
-    final File destDir = outDir == null ? new File("").getAbsoluteFile() : Paths.isAbsolute(outDir) ? new File(outDir) : new File(project.getBuild().getDirectory(), outDir);
+  public void execute(final Configuration configuration) throws MojoExecutionException, MojoFailureException {
     try {
-      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), new FileReader(inFile));
+      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(configuration.getDestDir(), className.replace('.', '/') + ".java"), new FileReader(inFile));
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getMessage(), e);
     }
-
-    project.addTestCompileSourceRoot(destDir.getAbsolutePath());
-    project.addCompileSourceRoot(destDir.getAbsolutePath());
   }
 }

@@ -109,7 +109,7 @@
             </executions>
             <configuration>
               <inFile>src/test/resources/keywords.txt</inFile>
-              <outDir>generated-test-sources/autogen</outDir>
+              <destDir>${project.build.directory}/generated-test-sources/autogen</destDir>
               <className>org.fastjax.autogen.radixtree.Keyword</className>
             </configuration>
           </plugin>
@@ -137,6 +137,11 @@
       <groupId>org.fastjax.autogen</groupId>
       <artifactId>autogen-radixtree</artifactId>
       <version>0.2.3-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.fastjax.maven</groupId>
+      <artifactId>maven-mojo</artifactId>
+      <version>0.3.5-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.fastjax</groupId>
