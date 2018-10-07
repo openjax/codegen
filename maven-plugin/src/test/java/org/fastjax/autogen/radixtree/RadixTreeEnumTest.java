@@ -16,16 +16,16 @@
 
 package org.fastjax.autogen.radixtree;
 
-import org.fastjax.autogen.radixtree.Keyword;
-import org.fastjax.autogen.radixtree.RadixTreeEnumUtil;
-import org.fastjax.util.Arrays;
+import java.util.Arrays;
+
+import org.fastjax.util.FastArrays;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class RadixTreeEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
-    Arrays.fillIncremental(indices, 0);
+    FastArrays.fillIncremental(indices, 0);
 
     Keyword keyword = null;
     for (int i = 0; i < token.length(); i++) {
@@ -54,7 +54,7 @@ public class RadixTreeEnumTest {
 
   private static String print(final Keyword[] keywords) {
     final int[] indices = new int[keywords.length];
-    Arrays.fillIncremental(indices, 0);
+    FastArrays.fillIncremental(indices, 0);
 
     final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
@@ -63,7 +63,7 @@ public class RadixTreeEnumTest {
       for (int i = 0; i < keyword.tree.length; i++)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])
-            out.append("\n ").append(Arrays.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
+            out.append("\n ").append(FastArrays.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
     }
 
     return out.substring(1);
