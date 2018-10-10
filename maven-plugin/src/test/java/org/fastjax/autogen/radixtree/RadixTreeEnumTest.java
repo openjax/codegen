@@ -16,8 +16,6 @@
 
 package org.fastjax.autogen.radixtree;
 
-import java.util.Arrays;
-
 import org.fastjax.util.FastArrays;
 import org.junit.Assert;
 import org.junit.Test;

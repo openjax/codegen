@@ -46,7 +46,7 @@ public final class RadixTreeEnumGeneratorMojo extends GeneratorMojo {
       RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(configuration.getDestDir(), className.replace('.', '/') + ".java"), new FileReader(inFile));
     }
     catch (final IOException e) {
-      throw new MojoExecutionException(e.getMessage(), e);
+      throw new MojoExecutionException(e.getClass().getSimpleName() + ": " + e.getMessage(), e);
     }
   }
 }
