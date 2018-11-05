@@ -98,7 +98,7 @@
           <plugin>
             <groupId>org.fastjax.autogen</groupId>
             <artifactId>autogen-maven-plugin</artifactId>
-            <version>0.2.3-SNAPSHOT</version>
+            <version>${project.version}</version>
             <executions>
               <execution>
                 <goals>
