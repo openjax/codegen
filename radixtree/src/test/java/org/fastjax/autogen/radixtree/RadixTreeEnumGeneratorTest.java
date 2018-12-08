@@ -64,7 +64,7 @@ public class RadixTreeEnumGeneratorTest {
 
   @Test
   public void testRadixTree() throws IOException {
-    final String packageName = getClass().getPackageName();
+    final String packageName = getClass().getPackage().getName();
     final String className = packageName + ".RadixTree";
     final File outFile = new File(destDir, className.replace('.', '/') + ".java");
     outFile.getParentFile().mkdirs();
@@ -81,7 +81,7 @@ public class RadixTreeEnumGeneratorTest {
 
   @Test
   public void testKeywords() throws IOException {
-    final String packageName = getClass().getPackageName();
+    final String packageName = getClass().getPackage().getName();
     final String className = packageName + ".Keyword";
     final File outFile = new File(destDir, className.replace('.', '/') + ".java");
     outFile.getParentFile().mkdirs();
