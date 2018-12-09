@@ -51,7 +51,7 @@ public class RadixTreeEnumGenerator {
     final StringBuilder builder = new StringBuilder();
     for (int ch; (ch = reader.read()) != -1; builder.append((char)ch));
 
-    final String in = builder.toString().replaceAll("\\s{1,}", " ");
+    final String in = builder.toString().replaceAll("\\s+", " ");
     final String[] tokens = in.split(" ");
     RadixTreeEnumGenerator.generate(className, inheritsFrom, outFile, tokens);
   }
