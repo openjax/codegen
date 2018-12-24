@@ -1,4 +1,4 @@
-# AutoGen
+# FastJAX AutoGen
 
 **Auto-generated code patterns for better language cohesion, and faster runtime performance**
 

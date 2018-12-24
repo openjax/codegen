@@ -1,4 +1,4 @@
-# RadixTree
+# FastJAX AutoGen RadixTree
 
 **Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations**
 

@@ -1,4 +1,4 @@
-# AutoGen Maven Plugin
+# FastJAX AutoGen Maven Plugin
 
 **Auto-generate code during the Maven build lifecycle**
 
