@@ -22,19 +22,23 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
+import org.fastjax.util.Identifiers;
+
 public class RadixTreeEnumGenerator {
   private static final class Word {
     private final String name;
+    private final String identifier;
     private final int[][] tree;
 
     private Word(final String name) {
       this.name = name;
+      this.identifier = Identifiers.toIdentifier(name.toUpperCase(), '_', '$');
       this.tree = new int[name.length() + 1][];
     }
 
     @Override
     public String toString() {
-      return name;
+      return identifier;
     }
   }
 

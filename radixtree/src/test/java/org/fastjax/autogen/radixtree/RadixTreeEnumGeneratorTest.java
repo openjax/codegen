@@ -58,7 +58,7 @@ public class RadixTreeEnumGeneratorTest {
       assertEquals(keyword, word);
     }
     catch (final IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-      throw new RuntimeException(e);
+      throw new IllegalStateException(e);
     }
   }
 

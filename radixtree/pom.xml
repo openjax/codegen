@@ -32,6 +32,11 @@
   <dependencies>
     <dependency>
       <groupId>org.fastjax</groupId>
+      <artifactId>util</artifactId>
+      <version>0.7.9-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.fastjax</groupId>
       <artifactId>test</artifactId>
       <version>0.6.9-SNAPSHOT</version>
       <scope>test</scope>
