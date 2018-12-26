@@ -58,6 +58,10 @@ To configure the plugin in your POM, the following is an example of the plugin d
 | `<className>`              | className              | String            | Required           | Class name of generated enum.                                                     |
 | `<inheritsFrom>`<br>&nbsp; | inheritsFrom<br>&nbsp; | String<br>&nbsp;  | Optional<br>&nbsp; | Interface class name the generated enum must inherit from.<br>**Default:** `null` |
 
+### JavaDocs
+
+JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
+
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.

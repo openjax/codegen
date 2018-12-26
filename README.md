@@ -11,7 +11,7 @@ AutoGen is a collection of modules that utilize the [Code Generation][codegen] p
 
 ### JavaDocs
 
-JavaDocs are available [here](https://www.fastjax.org/javadocs/org/fastjax/autogen/package-summary.html).
+JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
 
 ## Contributing
 

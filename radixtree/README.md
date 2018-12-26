@@ -115,6 +115,10 @@ The output shows that `Keyword.RUBENS` was in fact matched from the first charac
 
 The [`autogen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
 
+### JavaDocs
+
+JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
