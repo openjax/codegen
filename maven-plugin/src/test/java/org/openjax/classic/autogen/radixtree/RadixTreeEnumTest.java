@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,11 +14,11 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.autogen.radixtree;
+package org.openjax.classic.autogen.radixtree;
 
-import org.fastjax.util.FastArrays;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openjax.classic.util.FastArrays;
 
 public class RadixTreeEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
@@ -26,7 +26,7 @@ public class RadixTreeEnumTest {
     FastArrays.fillIncremental(indices, 0);
 
     Keyword keyword = null;
-    for (int i = 0; i < token.length(); i++) {
+    for (int i = 0; i < token.length(); ++i) {
       final char ch = token.charAt(i);
       if (indices != null) {
         final int index = RadixTreeEnumUtil.binarySearch(keywords, indices, ch, i);
@@ -58,7 +58,7 @@ public class RadixTreeEnumTest {
     for (final int index : indices) {
       final Keyword keyword = keywords[index];
       out.append('\n').append(keyword);
-      for (int i = 0; i < keyword.tree.length; i++)
+      for (int i = 0; i < keyword.tree.length; ++i)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])
             out.append("\n ").append(FastArrays.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));

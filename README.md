@@ -1,4 +1,4 @@
-# FastJAX AutoGen
+# OpenJAX Classic AutoGen
 
 **Auto-generated code patterns for better language cohesion, and faster runtime performance**
 
@@ -11,7 +11,7 @@ AutoGen is a collection of modules that utilize the [Code Generation][codegen] p
 
 ### JavaDocs
 
-JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
+JavaDocs are available [here](https://classic.openjax.org/autogen/apidocs/).
 
 ## Contributing
 

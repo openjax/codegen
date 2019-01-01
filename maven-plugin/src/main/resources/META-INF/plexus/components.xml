@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 FastJAX
+  Copyright (c) 2014 OpenJAX
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
       <configuration>
         <id>autogen</id>
         <default-phases>
-          <generate-sources>org.fastjax.autogen:autogen-maven-plugin:radixtree</generate-sources>
+          <generate-sources>org.openjax.classic.autogen:autogen-maven-plugin:radixtree</generate-sources>
         </default-phases>
       </configuration>
     </component>
@@ -37,7 +37,7 @@
           <phase>radixtree</phase>
         </phases>
         <default-phases>
-          <radixtree>org.fastjax.autogen:autogen-maven-plugin:radixtree</radixtree>
+          <radixtree>org.openjax.classic.autogen:autogen-maven-plugin:radixtree</radixtree>
         </default-phases>
       </configuration>
     </component>

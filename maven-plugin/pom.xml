@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 FastJAX
+  Copyright (c) 2014 OpenJAX
   
   Permission icd s hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -20,8 +20,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.fastjax.autogen</groupId>
-    <artifactId>autogen</artifactId>
+    <groupId>org.openjax.classic.autogen</groupId>
+    <artifactId>classic-autogen</artifactId>
     <version>0.2.3-SNAPSHOT</version>
   </parent>
   <artifactId>autogen-maven-plugin</artifactId>
@@ -82,7 +82,7 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.fastjax.xml</groupId>
+            <groupId>org.openjax.classic.xml</groupId>
             <artifactId>xml-maven-plugin</artifactId>
           </plugin>
         </plugins>
@@ -93,7 +93,7 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.fastjax.autogen</groupId>
+            <groupId>org.openjax.classic.autogen</groupId>
             <artifactId>autogen-maven-plugin</artifactId>
             <version>${project.version}</version>
             <executions>
@@ -107,7 +107,7 @@
             <configuration>
               <inFile>src/test/resources/keywords.txt</inFile>
               <destDir>${project.build.directory}/generated-test-sources/autogen</destDir>
-              <className>org.fastjax.autogen.radixtree.Keyword</className>
+              <className>org.openjax.classic.autogen.radixtree.Keyword</className>
             </configuration>
           </plugin>
         </plugins>
@@ -131,18 +131,18 @@
       <version>3.5.0</version>
     </dependency>
     <dependency>
-      <groupId>org.fastjax.autogen</groupId>
+      <groupId>org.openjax.classic.autogen</groupId>
       <artifactId>autogen-radixtree</artifactId>
       <version>0.2.3-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.fastjax.maven</groupId>
+      <groupId>org.openjax.classic.maven</groupId>
       <artifactId>maven-mojo</artifactId>
       <version>0.3.5-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.fastjax</groupId>
-      <artifactId>util</artifactId>
+      <groupId>org.openjax.classic</groupId>
+      <artifactId>classic-util</artifactId>
       <version>0.7.9-SNAPSHOT</version>
     </dependency>
   </dependencies>

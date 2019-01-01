@@ -1,4 +1,4 @@
-# FastJAX AutoGen Maven Plugin
+# OpenJAX Classic AutoGen Maven Plugin
 
 **Auto-generate code during the Maven build lifecycle**
 
@@ -21,7 +21,7 @@ The `autogen:radixtree` goal is bound to the `generate-sources` phase, and is us
 To execute the plugin from the command line, the following command can be used:
 
 ```bash
-mvn org.fastjax.autogen:autogen-maven-plugin:<goal> -DinFile=<inFile> -DclassName=<className> -DdestDir=[destDir] -DinheritsFrom=[inheritsFrom]
+mvn org.openjax.classic.autogen:autogen-maven-plugin:<goal> -DinFile=<inFile> -DclassName=<className> -DdestDir=[destDir] -DinheritsFrom=[inheritsFrom]
 ```
 
 ### Configuring the AutoGen Plugin
@@ -30,7 +30,7 @@ To configure the plugin in your POM, the following is an example of the plugin d
 
 ```xml
 <plugin>
-  <groupId>org.fastjax.autogen</groupId>
+  <groupId>org.openjax.classic.autogen</groupId>
   <artifactId>autogen-maven-plugin</artifactId>
   <version>0.2.3-SNAPSHOT</version>
   <executions>
@@ -60,7 +60,7 @@ To configure the plugin in your POM, the following is an example of the plugin d
 
 ### JavaDocs
 
-JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
+JavaDocs are available [here](https://classic.openjax.org/autogen/apidocs/).
 
 ### License
 

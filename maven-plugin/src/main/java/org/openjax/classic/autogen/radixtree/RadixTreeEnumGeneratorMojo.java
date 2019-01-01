@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.autogen.radixtree;
+package org.openjax.classic.autogen.radixtree;
 
 import java.io.File;
 import java.io.FileReader;
@@ -26,7 +26,7 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.fastjax.maven.mojo.GeneratorMojo;
+import org.openjax.classic.maven.mojo.GeneratorMojo;
 
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="radixtree")

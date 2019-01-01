@@ -1,4 +1,4 @@
-# FastJAX AutoGen RadixTree
+# OpenJAX Classic AutoGen RadixTree
 
 **Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations**
 
@@ -117,7 +117,7 @@ The [`autogen-maven-plugin`](../maven-plugin) can be used to generate RadixTree 
 
 ### JavaDocs
 
-JavaDocs are available [here](https://autogen.fastjax.org/javadocs/).
+JavaDocs are available [here](https://classic.openjax.org/autogen/apidocs/).
 
 ## Contributing
 

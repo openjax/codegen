@@ -1,4 +1,4 @@
-/* Copyright (c) 2014 FastJAX
+/* Copyright (c) 2014 OpenJAX
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.fastjax.autogen.radixtree;
+package org.openjax.classic.autogen.radixtree;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
-import org.fastjax.util.Identifiers;
+import org.openjax.classic.util.Identifiers;
 
 public class RadixTreeEnumGenerator {
   private static final class Word {

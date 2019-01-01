@@ -1,4 +1,4 @@
-package org.fastjax.autogen.radixtree;
+package org.openjax.classic.autogen.radixtree;
 
 public enum Keyword {
   $INTERFACE("@interface", new int[][] {{0}}),
@@ -67,13 +67,13 @@ public enum Keyword {
 
   public static Keyword findNext(final Keyword previous, final int position, final char ch) {
     if (position == 0) {
-      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), Keyword.root, ch, position);
+      final int index = org.openjax.classic.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), Keyword.root, ch, position);
       return index < 0 ? null : Keyword.values()[index];
     }
 
     if (position <= previous.tree.length) {
       final int[] tree = previous.tree[position - 1];
-      final int index = org.fastjax.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), tree, ch, position);
+      final int index = org.openjax.classic.autogen.radixtree.RadixTreeEnumUtil.binarySearch(Keyword.values(), tree, ch, position);
       return index < 0 ? null : Keyword.values()[tree[index]];
     }
 

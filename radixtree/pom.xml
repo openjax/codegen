@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2014 FastJAX
+  Copyright (c) 2014 OpenJAX
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -20,21 +20,21 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.fastjax.autogen</groupId>
-    <artifactId>autogen</artifactId>
+    <groupId>org.openjax.classic.autogen</groupId>
+    <artifactId>classic-autogen</artifactId>
     <version>0.2.3-SNAPSHOT</version>
   </parent>
   <artifactId>autogen-radixtree</artifactId>
   <name>${project.groupId}:${project.artifactId}</name>
   <dependencies>
     <dependency>
-      <groupId>org.fastjax</groupId>
-      <artifactId>util</artifactId>
+      <groupId>org.openjax.classic</groupId>
+      <artifactId>classic-util</artifactId>
       <version>0.7.9-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.fastjax</groupId>
-      <artifactId>test</artifactId>
+      <groupId>org.openjax.classic</groupId>
+      <artifactId>classic-test</artifactId>
       <version>0.6.9-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
