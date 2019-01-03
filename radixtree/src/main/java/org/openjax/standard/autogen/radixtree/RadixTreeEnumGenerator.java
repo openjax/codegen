@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.autogen.radixtree;
+package org.openjax.standard.autogen.radixtree;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
-import org.openjax.classic.util.Identifiers;
+import org.openjax.standard.util.Identifiers;
 
 public class RadixTreeEnumGenerator {
   private static final class Word {

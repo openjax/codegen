@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.autogen.radixtree;
+package org.openjax.standard.autogen.radixtree;
 
 public final class RadixTreeEnumUtil {
   public static int binarySearch(final Enum<?>[] word, final int[] tree, final char ch, final int i) {

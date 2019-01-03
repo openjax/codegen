@@ -14,11 +14,13 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.autogen.radixtree;
+package org.openjax.standard.autogen.radixtree;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openjax.classic.util.FastArrays;
+import org.openjax.standard.autogen.radixtree.Keyword;
+import org.openjax.standard.autogen.radixtree.RadixTreeEnumUtil;
+import org.openjax.standard.util.FastArrays;
 
 public class RadixTreeEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {

@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.classic.autogen.radixtree;
+package org.openjax.standard.autogen.radixtree;
 
 import java.io.File;
 import java.io.FileReader;
@@ -26,7 +26,8 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.openjax.classic.maven.mojo.GeneratorMojo;
+import org.openjax.standard.autogen.radixtree.RadixTreeEnumGenerator;
+import org.openjax.standard.maven.mojo.GeneratorMojo;
 
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="radixtree")
