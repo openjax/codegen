@@ -1,6 +1,8 @@
 # OpenJAX Standard AutoGen RadixTree
 
-**Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations**
+> Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations
+
+[![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
 
 ## Introduction
 

@@ -1,6 +1,8 @@
 # OpenJAX Standard AutoGen Maven Plugin
 
-**Auto-generate code during the Maven build lifecycle**
+> Auto-generate code during the Maven build lifecycle
+
+[![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
 
 The AutoGen Plugin is used to execute auto-generation tools defined in [AutoGen](..) during the Maven build lifecycle, in a phase such as `generate-sources` or `generate-test-sources`.
 
