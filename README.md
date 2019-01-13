@@ -3,6 +3,7 @@
 > Auto-generated code patterns for better language cohesion, and faster runtime performance
 
 [![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
 
 AutoGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
 

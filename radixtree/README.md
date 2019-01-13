@@ -3,6 +3,7 @@
 > Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations
 
 [![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
 
 ## Introduction
 
