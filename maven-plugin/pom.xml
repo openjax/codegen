@@ -68,6 +68,10 @@
       <build>
         <plugins>
           <plugin>
+            <groupId>org.openjax.standard.xml</groupId>
+            <artifactId>xml-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-invoker-plugin</artifactId>
             <executions>
@@ -76,19 +80,10 @@
                   <profiles>
                     <profile>!maven-invoker-plugin</profile>
                     <profile>plugin-test</profile>
-                    <profile>skip-coveralls</profile>
                   </profiles>
                 </configuration>
               </execution>
             </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.openjax.standard.xml</groupId>
-            <artifactId>xml-maven-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
