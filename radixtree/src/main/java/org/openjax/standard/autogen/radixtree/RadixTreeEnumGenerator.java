@@ -141,7 +141,7 @@ public class RadixTreeEnumGenerator {
             y.append(", ").append(word.tree[i][j]);
 
         if (y.length() >= 2)
-          x.append(", {").append(y.substring(2)).append("}");
+          x.append(", {").append(y.substring(2)).append('}');
       }
 
       outer.append(",\n  ").append(word.toString().toUpperCase()).append("(\"").append(word.name).append("\", new int[][] {").append(x.substring(2)).append("})");
@@ -180,11 +180,11 @@ public class RadixTreeEnumGenerator {
     code.append("    return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;\n");
     code.append("  }\n\n");
 
-    code.append("  @").append(Override.class.getName()).append("\n");
+    code.append("  @").append(Override.class.getName()).append('\n');
     code.append("  public ").append(String.class.getName()).append(" toString() {\n");
     code.append("    return token;\n");
     code.append("  }\n");
-    code.append("}");
+    code.append('}');
 
     Files.write(file.toPath(), code.toString().getBytes());
   }
