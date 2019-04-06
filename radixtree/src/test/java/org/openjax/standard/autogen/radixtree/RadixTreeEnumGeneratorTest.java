@@ -26,7 +26,6 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 
 import org.junit.Test;
-import org.openjax.standard.autogen.radixtree.RadixTreeEnumGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

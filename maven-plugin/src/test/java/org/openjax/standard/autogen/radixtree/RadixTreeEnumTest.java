@@ -18,8 +18,6 @@ package org.openjax.standard.autogen.radixtree;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openjax.standard.autogen.radixtree.Keyword;
-import org.openjax.standard.autogen.radixtree.RadixTreeEnumUtil;
 import org.openjax.standard.util.FastArrays;
 
 public class RadixTreeEnumTest {

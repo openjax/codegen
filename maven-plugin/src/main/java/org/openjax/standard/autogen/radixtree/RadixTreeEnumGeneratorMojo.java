@@ -26,7 +26,6 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.openjax.standard.autogen.radixtree.RadixTreeEnumGenerator;
 import org.openjax.standard.maven.mojo.GeneratorMojo;
 
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
