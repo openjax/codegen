@@ -85,7 +85,7 @@ public class RadixTreeEnumGeneratorTest {
     final String className = packageName + ".Keyword";
     final File outFile = new File(destDir, className.replace('.', '/') + ".java");
     outFile.getParentFile().mkdirs();
-    RadixTreeEnumGenerator.generate(className, outFile, new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("keywords.txt")));
+    RadixTreeEnumGenerator.generate(className, outFile, new InputStreamReader(ClassLoader.getSystemClassLoader().getResourceAsStream("keywords.txt")));
 
     assertSource(Keyword.class, outFile);
 
