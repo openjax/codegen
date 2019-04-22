@@ -16,11 +16,13 @@
 
 package org.openjax.standard.autogen.radixtree;
 
+/**
+ * Supporting utility functions for {@link RadixTreeEnumGenerator}.
+ */
 public final class RadixTreeEnumUtil {
   public static int binarySearch(final Enum<?>[] word, final int[] tree, final char ch, final int i) {
     int low = 0;
     int high = tree.length - 1;
-
     while (low <= high) {
       final int mid = (low + high) >>> 1;
       final String name = word[tree[mid]].toString();
@@ -30,10 +32,10 @@ public final class RadixTreeEnumUtil {
       else if (midVal > ch)
         high = mid - 1;
       else
-        return mid; // key found
+        return mid;
     }
 
-    return -1 - low; // key not found.
+    return -1 - low;
   }
 
   private RadixTreeEnumUtil() {

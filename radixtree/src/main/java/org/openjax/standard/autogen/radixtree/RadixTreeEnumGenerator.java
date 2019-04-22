@@ -24,6 +24,9 @@ import java.util.Arrays;
 
 import org.openjax.standard.util.Identifiers;
 
+/**
+ * Generator for Radix Trees.
+ */
 public class RadixTreeEnumGenerator {
   private static final class Word {
     private final String name;
@@ -48,9 +51,8 @@ public class RadixTreeEnumGenerator {
 
   public static void generate(final String className, final String inheritsFrom, final File outFile, final Reader reader) throws IOException {
     final File parentFile = outFile.getParentFile();
-    if (!parentFile.exists())
-      if (!parentFile.mkdirs())
-        throw new IllegalStateException("Unable to create output path: " + parentFile.getAbsolutePath());
+    if (!parentFile.exists() && !parentFile.mkdirs())
+      throw new IllegalStateException("Unable to create output path: " + parentFile.getAbsolutePath());
 
     final StringBuilder builder = new StringBuilder();
     for (int ch; (ch = reader.read()) != -1; builder.append((char)ch));

@@ -28,6 +28,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.openjax.standard.maven.mojo.GeneratorMojo;
 
+/**
+ * Maven MOJO for {@link RadixTreeEnumGenerator}.
+ */
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="radixtree")
 public final class RadixTreeEnumGeneratorMojo extends GeneratorMojo {
