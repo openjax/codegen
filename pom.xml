@@ -25,7 +25,7 @@
     <version>1.11.15-SNAPSHOT</version>
   </parent>
   <groupId>org.openjax.standard.autogen</groupId>
-  <artifactId>standard-autogen</artifactId>
+  <artifactId>autogen</artifactId>
   <version>0.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
