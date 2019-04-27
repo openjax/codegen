@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.autogen/autogen.svg)](https://www.javadoc.io/doc/org.openjax.standard.autogen/autogen)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.autogen/autogen.svg)](https://mvnrepository.com/artifact/org.openjax.standard.autogen/autogen)
 
 AutoGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
 
@@ -11,10 +13,6 @@ AutoGen is a collection of modules that utilize the [Code Generation][codegen] p
 
 * **[radixtree][radixtree]**: Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations.
 * **[autogen-maven-plugin][maven-plugin]**: Maven plugin for AutoGen patterns in this project.
-
-### JavaDocs
-
-JavaDocs are available [here](https://standard.openjax.org/autogen/apidocs/).
 
 ## Contributing
 

@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.autogen/autogen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.autogen/autogen-maven-plugin)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.autogen/autogen-maven-plugin.svg)](https://mvnrepository.com/artifact/org.openjax.standard.autogen/autogen-maven-plugin)
 
 The AutoGen Plugin is used to execute auto-generation tools defined in [AutoGen](..) during the Maven build lifecycle, in a phase such as `generate-sources` or `generate-test-sources`.
 
@@ -60,10 +62,6 @@ To configure the plugin in your POM, the following is an example of the plugin d
 | `<destDir>`<br>&nbsp;      | destDir<br>&nbsp;      | String<br>&nbsp;  | Optional<br>&nbsp; | Destination directory of generated enum.<br>**Default:** `${project.basedir}`     |
 | `<className>`              | className              | String            | Required           | Class name of generated enum.                                                     |
 | `<inheritsFrom>`<br>&nbsp; | inheritsFrom<br>&nbsp; | String<br>&nbsp;  | Optional<br>&nbsp; | Interface class name the generated enum must inherit from.<br>**Default:** `null` |
-
-### JavaDocs
-
-JavaDocs are available [here](https://standard.openjax.org/autogen/apidocs/).
 
 ### License
 

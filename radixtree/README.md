@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.autogen/exec.svg)](https://www.javadoc.io/doc/org.openjax.standard.autogen/exec)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.autogen/exec.svg)](https://mvnrepository.com/artifact/org.openjax.standard.autogen/exec)
 
 ## Introduction
 
@@ -117,10 +119,6 @@ The output shows that `Keyword.RUBENS` was in fact matched from the first charac
 ### `autogen-maven-plugin`
 
 The [`autogen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
-
-### JavaDocs
-
-JavaDocs are available [here](https://standard.openjax.org/autogen/apidocs/).
 
 ## Contributing
 
