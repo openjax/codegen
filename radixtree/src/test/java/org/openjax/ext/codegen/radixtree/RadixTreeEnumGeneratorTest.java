@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.codegen.radixtree;
+package org.openjax.ext.codegen.radixtree;
 
 import static org.junit.Assert.*;
 
@@ -26,7 +26,6 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 
 import org.junit.Test;
-import org.openjax.standard.codegen.radixtree.RadixTreeEnumGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

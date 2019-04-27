@@ -1,11 +1,11 @@
-# OpenJAX Standard CodeGen
+# OpenJAX Extensions CodeGen
 
 > Auto-generated code patterns for better language cohesion, and faster runtime performance
 
-[![Build Status](https://travis-ci.org/openjax/standard-codegen.png)](https://travis-ci.org/openjax/standard-codegen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-codegen/badge.svg)](https://coveralls.io/github/openjax/standard-codegen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.codegen/codegen.svg)](https://www.javadoc.io/doc/org.openjax.standard.codegen/codegen)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.codegen/codegen.svg)](https://mvnrepository.com/artifact/org.openjax.standard.codegen/codegen)
+[![Build Status](https://travis-ci.org/openjax/ext-codegen.png)](https://travis-ci.org/openjax/ext-codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/ext-codegen/badge.svg)](https://coveralls.io/github/openjax/ext-codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.ext.codegen/codegen.svg)](https://www.javadoc.io/doc/org.openjax.ext.codegen/codegen)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.ext.codegen/codegen.svg)](https://mvnrepository.com/artifact/org.openjax.ext.codegen/codegen)
 
 CodeGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
 

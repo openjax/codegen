@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.codegen.radixtree;
+package org.openjax.ext.codegen.radixtree;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
-import org.openjax.standard.util.Identifiers;
+import org.openjax.ext.util.Identifiers;
 
 /**
  * Generator for Radix Trees.

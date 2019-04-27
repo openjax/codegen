@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.codegen.radixtree;
+package org.openjax.ext.codegen.radixtree;
 
 /**
  * Supporting utility functions for {@link RadixTreeEnumGenerator}.
