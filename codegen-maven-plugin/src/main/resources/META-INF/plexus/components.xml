@@ -18,26 +18,26 @@
   <components>
     <component>
       <role>org.apache.maven.lifecycle.Lifecycle</role>
-      <role-hint>autogen</role-hint>
+      <role-hint>codegen</role-hint>
       <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
       <configuration>
-        <id>autogen</id>
+        <id>codegen</id>
         <default-phases>
-          <generate-sources>org.openjax.standard.autogen:autogen-maven-plugin:radixtree</generate-sources>
+          <generate-sources>org.openjax.standard.codegen:codegen-maven-plugin:radixtree</generate-sources>
         </default-phases>
       </configuration>
     </component>
     <component>
       <role>org.apache.maven.lifecycle.Lifecycle</role>
-      <role-hint>autogen</role-hint>
+      <role-hint>codegen</role-hint>
       <implementation>org.apache.maven.lifecycle.Lifecycle</implementation>
       <configuration>
-        <id>autogen</id>
+        <id>codegen</id>
         <phases>
           <phase>radixtree</phase>
         </phases>
         <default-phases>
-          <radixtree>org.openjax.standard.autogen:autogen-maven-plugin:radixtree</radixtree>
+          <radixtree>org.openjax.standard.codegen:codegen-maven-plugin:radixtree</radixtree>
         </default-phases>
       </configuration>
     </component>

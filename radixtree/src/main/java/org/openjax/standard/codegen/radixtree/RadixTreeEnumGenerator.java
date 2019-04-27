@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.autogen.radixtree;
+package org.openjax.standard.codegen.radixtree;
 
 import java.io.File;
 import java.io.IOException;

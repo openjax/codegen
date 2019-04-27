@@ -1,11 +1,11 @@
-# OpenJAX Standard AutoGen RadixTree
+# OpenJAX Standard CodeGen RadixTree
 
 > Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations
 
-[![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.autogen/exec.svg)](https://www.javadoc.io/doc/org.openjax.standard.autogen/exec)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.autogen/exec.svg)](https://mvnrepository.com/artifact/org.openjax.standard.autogen/exec)
+[![Build Status](https://travis-ci.org/openjax/standard-codegen.png)](https://travis-ci.org/openjax/standard-codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-codegen/badge.svg)](https://coveralls.io/github/openjax/standard-codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.codegen/exec.svg)](https://www.javadoc.io/doc/org.openjax.standard.codegen/exec)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.codegen/exec.svg)](https://mvnrepository.com/artifact/org.openjax.standard.codegen/exec)
 
 ## Introduction
 
@@ -116,9 +116,9 @@ s: rubens
 
 The output shows that `Keyword.RUBENS` was in fact matched from the first character lookup, which supports the `O(log n₀)` [performance estimate](#performance).
 
-### `autogen-maven-plugin`
+### `codegen-maven-plugin`
 
-The [`autogen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
+The [`codegen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
 
 ## Contributing
 

@@ -1,18 +1,18 @@
-# OpenJAX Standard AutoGen
+# OpenJAX Standard CodeGen
 
 > Auto-generated code patterns for better language cohesion, and faster runtime performance
 
-[![Build Status](https://travis-ci.org/openjax/standard-autogen.png)](https://travis-ci.org/openjax/standard-autogen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-autogen/badge.svg)](https://coveralls.io/github/openjax/standard-autogen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.autogen/autogen.svg)](https://www.javadoc.io/doc/org.openjax.standard.autogen/autogen)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.autogen/autogen.svg)](https://mvnrepository.com/artifact/org.openjax.standard.autogen/autogen)
+[![Build Status](https://travis-ci.org/openjax/standard-codegen.png)](https://travis-ci.org/openjax/standard-codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/standard-codegen/badge.svg)](https://coveralls.io/github/openjax/standard-codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.standard.codegen/codegen.svg)](https://www.javadoc.io/doc/org.openjax.standard.codegen/codegen)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.standard.codegen/codegen.svg)](https://mvnrepository.com/artifact/org.openjax.standard.codegen/codegen)
 
-AutoGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
+CodeGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
 
 ## Modules
 
 * **[radixtree][radixtree]**: Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations.
-* **[autogen-maven-plugin][maven-plugin]**: Maven plugin for AutoGen patterns in this project.
+* **[codegen-maven-plugin][maven-plugin]**: Maven plugin for CodeGen patterns in this project.
 
 ## Contributing
 

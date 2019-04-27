@@ -24,13 +24,13 @@
     <artifactId>standard</artifactId>
     <version>1.11.15-SNAPSHOT</version>
   </parent>
-  <groupId>org.openjax.standard.autogen</groupId>
-  <artifactId>autogen</artifactId>
+  <groupId>org.openjax.standard.codegen</groupId>
+  <artifactId>codegen</artifactId>
   <version>0.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <modules>
     <module>radixtree</module>
-    <module>autogen-maven-plugin</module>
+    <module>codegen-maven-plugin</module>
   </modules>
 </project>

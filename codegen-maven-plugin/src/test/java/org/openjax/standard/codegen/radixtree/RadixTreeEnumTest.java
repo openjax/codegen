@@ -14,10 +14,12 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.standard.autogen.radixtree;
+package org.openjax.standard.codegen.radixtree;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openjax.standard.codegen.radixtree.Keyword;
+import org.openjax.standard.codegen.radixtree.RadixTreeEnumUtil;
 import org.openjax.standard.util.FastArrays;
 
 public class RadixTreeEnumTest {
