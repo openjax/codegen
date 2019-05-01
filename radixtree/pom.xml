@@ -25,7 +25,10 @@
     <version>0.2.3-SNAPSHOT</version>
   </parent>
   <artifactId>radixtree</artifactId>
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>OpenJAX Extensions CodeGen RadixTree</name>
+  <description>
+    Generate a Radix Tree of keywords as a Java Enum for time-optimized lookup operations.
+  </description>
   <dependencies>
     <dependency>
       <groupId>org.openjax.ext</groupId>

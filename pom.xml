@@ -28,7 +28,10 @@
   <artifactId>codegen</artifactId>
   <version>0.2.3-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>OpenJAX Extensions CodeGen</name>
+  <description>
+    A collection of modules that utilize the Code Generation process to obtain better language cohesion, and faster runtime performance.
+  </description>
   <modules>
     <module>radixtree</module>
     <module>codegen-maven-plugin</module>
