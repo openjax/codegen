@@ -1,11 +1,11 @@
-# OpenJAX Extensions CodeGen Maven Plugin
+# OpenJAX CodeGen Maven Plugin
 
 > Auto-generate code during the Maven build lifecycle
 
-[![Build Status](https://travis-ci.org/openjax/ext-codegen.png)](https://travis-ci.org/openjax/ext-codegen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/ext-codegen/badge.svg)](https://coveralls.io/github/openjax/ext-codegen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.ext.codegen/codegen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.ext.codegen/codegen-maven-plugin.svg)](https://mvnrepository.com/artifact/org.openjax.ext.codegen/codegen-maven-plugin)
+[![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen-maven-plugin.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen-maven-plugin)
 
 The CodeGen Plugin is used to execute auto-generation tools during the Maven build lifecycle, in a phase such as `generate-sources` or `generate-test-sources`.
 
@@ -26,7 +26,7 @@ The `codegen:radixtree` goal is bound to the `generate-sources` phase, and is us
 To execute the plugin from the command line, the following command can be used:
 
 ```bash
-mvn org.openjax.ext.codegen:codegen-maven-plugin:<goal> -DinFile=<inFile> -DclassName=<className> -DdestDir=[destDir] -DinheritsFrom=[inheritsFrom]
+mvn org.openjax.codegen:codegen-maven-plugin:<goal> -DinFile=<inFile> -DclassName=<className> -DdestDir=[destDir] -DinheritsFrom=[inheritsFrom]
 ```
 
 ### Configuring the CodeGen Plugin
@@ -35,7 +35,7 @@ To configure the plugin in your POM, the following is an example of the plugin d
 
 ```xml
 <plugin>
-  <groupId>org.openjax.ext.codegen</groupId>
+  <groupId>org.openjax.codegen</groupId>
   <artifactId>codegen-maven-plugin</artifactId>
   <version>0.2.3-SNAPSHOT</version>
   <executions>

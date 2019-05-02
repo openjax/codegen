@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.codegen.radixtree;
+package org.openjax.codegen.radixtree;
 
 import java.io.File;
 import java.io.FileReader;
@@ -26,8 +26,8 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.openjax.ext.codegen.radixtree.RadixTreeEnumGenerator;
-import org.openjax.ext.maven.mojo.GeneratorMojo;
+import org.openjax.codegen.radixtree.RadixTreeEnumGenerator;
+import org.openjax.maven.mojo.GeneratorMojo;
 
 /**
  * Maven MOJO for {@link RadixTreeEnumGenerator}.

@@ -23,7 +23,7 @@
       <configuration>
         <id>codegen</id>
         <default-phases>
-          <generate-sources>org.openjax.ext.codegen:codegen-maven-plugin:radixtree</generate-sources>
+          <generate-sources>org.openjax.codegen:codegen-maven-plugin:radixtree</generate-sources>
         </default-phases>
       </configuration>
     </component>
@@ -37,7 +37,7 @@
           <phase>radixtree</phase>
         </phases>
         <default-phases>
-          <radixtree>org.openjax.ext.codegen:codegen-maven-plugin:radixtree</radixtree>
+          <radixtree>org.openjax.codegen:codegen-maven-plugin:radixtree</radixtree>
         </default-phases>
       </configuration>
     </component>

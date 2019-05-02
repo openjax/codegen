@@ -20,23 +20,23 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.openjax.ext.codegen</groupId>
+    <groupId>org.openjax.codegen</groupId>
     <artifactId>codegen</artifactId>
     <version>0.2.3-SNAPSHOT</version>
   </parent>
   <artifactId>radixtree</artifactId>
-  <name>OpenJAX Extensions CodeGen RadixTree</name>
+  <name>OpenJAX CodeGen RadixTree</name>
   <description>
     Generate a Radix Tree of keywords as a Java Enum for time-optimized lookup operations.
   </description>
   <dependencies>
     <dependency>
-      <groupId>org.openjax.ext</groupId>
+      <groupId>org.openjax</groupId>
       <artifactId>util</artifactId>
       <version>0.7.9-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.openjax.ext</groupId>
+      <groupId>org.openjax</groupId>
       <artifactId>test</artifactId>
       <version>0.6.9-SNAPSHOT</version>
       <scope>test</scope>

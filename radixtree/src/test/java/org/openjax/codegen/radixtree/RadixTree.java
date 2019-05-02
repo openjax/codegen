@@ -1,4 +1,4 @@
-package org.openjax.ext.codegen.radixtree;
+package org.openjax.codegen.radixtree;
 
 public enum RadixTree {
   ROMANE("romane", new int[][] {{0, 1, 2, 3, 4, 5, 6}, {0, 1, 2}, {0, 1, 2}, {0, 1}, {0, 1}, {0}}),
@@ -20,13 +20,13 @@ public enum RadixTree {
 
   public static RadixTree findNext(final RadixTree previous, final int position, final char ch) {
     if (position == 0) {
-      final int index = org.openjax.ext.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), RadixTree.root, ch, position);
+      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), RadixTree.root, ch, position);
       return index < 0 ? null : RadixTree.values()[index];
     }
 
     if (position <= previous.tree.length) {
       final int[] tree = previous.tree[position - 1];
-      final int index = org.openjax.ext.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), tree, ch, position);
+      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), tree, ch, position);
       return index < 0 ? null : RadixTree.values()[tree[index]];
     }
 

@@ -14,7 +14,7 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.ext.codegen.radixtree;
+package org.openjax.codegen.radixtree;
 
 import static org.junit.Assert.*;
 
