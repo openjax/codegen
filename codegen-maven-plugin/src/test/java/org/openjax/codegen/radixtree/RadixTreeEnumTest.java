@@ -20,7 +20,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openjax.codegen.radixtree.Keyword;
 import org.openjax.codegen.radixtree.RadixTreeEnumUtil;
-import org.openjax.util.FastArrays;
+import org.libj.util.FastArrays;
 
 public class RadixTreeEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
