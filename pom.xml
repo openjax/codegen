@@ -30,7 +30,7 @@
   <packaging>pom</packaging>
   <name>OpenJAX CodeGen</name>
   <description>
-    A collection of modules that utilize the Code Generation process to obtain better language cohesion, and faster runtime performance.
+    Modules that utilize the "Code Generation" process to obtain better language cohesion and faster runtime performance.
   </description>
   <modules>
     <module>radixtree</module>

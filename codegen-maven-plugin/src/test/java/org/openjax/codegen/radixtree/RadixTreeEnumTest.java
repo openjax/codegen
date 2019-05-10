@@ -20,12 +20,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openjax.codegen.radixtree.Keyword;
 import org.openjax.codegen.radixtree.RadixTreeEnumUtil;
-import org.libj.util.FastArrays;
+import org.libj.util.ArrayUtil;
 
 public class RadixTreeEnumTest {
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
-    FastArrays.fillIncremental(indices, 0);
+    ArrayUtil.fillIncremental(indices, 0);
 
     Keyword keyword = null;
     for (int i = 0; i < token.length(); ++i) {
@@ -54,7 +54,7 @@ public class RadixTreeEnumTest {
 
   private static String print(final Keyword[] keywords) {
     final int[] indices = new int[keywords.length];
-    FastArrays.fillIncremental(indices, 0);
+    ArrayUtil.fillIncremental(indices, 0);
 
     final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
@@ -63,7 +63,7 @@ public class RadixTreeEnumTest {
       for (int i = 0; i < keyword.tree.length; ++i)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])
-            out.append("\n ").append(FastArrays.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
+            out.append("\n ").append(ArrayUtil.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
     }
 
     return out.substring(1);
