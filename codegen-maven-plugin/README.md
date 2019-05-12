@@ -37,7 +37,7 @@ To configure the plugin in your POM, the following is an example of the plugin d
 <plugin>
   <groupId>org.openjax.codegen</groupId>
   <artifactId>codegen-maven-plugin</artifactId>
-  <version>0.2.3-SNAPSHOT</version>
+  <version>0.2.3</version>
   <executions>
     <execution>
       <goals>
