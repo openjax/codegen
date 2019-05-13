@@ -122,7 +122,7 @@ The [`codegen-maven-plugin`](../maven-plugin) can be used to generate RadixTree 
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please [open an issue](../../issues) first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
