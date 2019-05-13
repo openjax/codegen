@@ -1,7 +1,5 @@
 # OpenJAX CodeGen Maven Plugin
 
-> Auto-generate code during the Maven build lifecycle
-
 [![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
@@ -56,12 +54,12 @@ To configure the plugin in your POM, the following is an example of the plugin d
 
 #### Configuration Parameters
 
-| **Configuration**          | **Property**           | **Type**          | **Use**            | **Description**                                                                   |
-|:---------------------------|:-----------------------|:------------------|:-------------------|:----------------------------------------------------------------------------------|
-| `<inFile>`                 | inFile                 | String            | Required           | File containing sorted newline-delimited list of keywords.                        |
-| `<destDir>`<br>&nbsp;      | destDir<br>&nbsp;      | String<br>&nbsp;  | Optional<br>&nbsp; | Destination directory of generated enum.<br>**Default:** `${project.basedir}`     |
-| `<className>`              | className              | String            | Required           | Class name of generated enum.                                                     |
-| `<inheritsFrom>`<br>&nbsp; | inheritsFrom<br>&nbsp; | String<br>&nbsp;  | Optional<br>&nbsp; | Interface class name the generated enum must inherit from.<br>**Default:** `null` |
+| **Configuration**                    | **Property**           | **Type**          | **Use**            | **Description**                                                                   |
+|:-------------------------------------|:-----------------------|:------------------|:-------------------|:----------------------------------------------------------------------------------|
+| <samp>inFile¹</samp>                 | inFile                 | String            | Required           | File containing sorted newline-delimited list of keywords.                        |
+| <samp>destDir¹</samp><br>&nbsp;      | destDir<br>&nbsp;      | String<br>&nbsp;  | Optional<br>&nbsp; | Destination directory of generated enum.<br>**Default:** `${project.basedir}`     |
+| <samp>className¹</samp>              | className              | String            | Required           | Class name of generated enum.                                                     |
+| <samp>inheritsFrom¹</samp><br>&nbsp; | inheritsFrom<br>&nbsp; | String<br>&nbsp;  | Optional<br>&nbsp; | Interface class name the generated enum must inherit from.<br>**Default:** `null` |
 
 ## Contributing
 
@@ -72,5 +70,3 @@ Please make sure to update tests as appropriate.
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
-
-[mvn-plugin]: https://img.shields.io/badge/mvn-plugin-lightgrey.svg

@@ -1,7 +1,5 @@
 # OpenJAX CodeGen
 
-> Auto-generated code patterns for better language cohesion, and faster runtime performance
-
 [![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen)

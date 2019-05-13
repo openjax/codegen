@@ -1,13 +1,13 @@
 # OpenJAX CodeGen RadixTree
 
-> Generate a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations
-
 [![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/exec.svg)](https://www.javadoc.io/doc/org.openjax.codegen/exec)
 [![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/exec.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/exec)
 
 ## Introduction
+
+OpenJAX CodeGen RadixTree generates a [Radix Tree][radix-tree] of keywords as a Java `Enum` for time-optimized lookup operations.
 
 This module takes a list of keywords as an input, and produces a Java `Enum` that allows incremental, optimized lookup operations.
 
