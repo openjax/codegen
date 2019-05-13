@@ -79,9 +79,9 @@ For small lists of keywords, the same rules apply as for large lists. For small 
 Suppose you want to create a `RadixTreeEnum` from the keywords in the [illustration above](#illustration).
 
 ```java
-  final String className = "Keyword";
-  final File outFile = new File(className + ".java");
-  final String[] keywords = new String[] {"romane", "romanus", "romulus", "rubens", "ruber", "rubicon", "rubicundus"};
+  String className = "Keyword";
+  File outFile = new File(className + ".java");
+  String[] keywords = new String[] {"romane", "romanus", "romulus", "rubens", "ruber", "rubicon", "rubicundus"};
   RadixTreeEnumGenerator.generate(className, outFile, keywords);
 ```
 
@@ -92,10 +92,10 @@ The `RadixTreeEnumGenerator.generate(...)` method will build the `RadixTreeEnum`
 Suppose you want to look up the `Keyword` matching the string `"rubens"`:
 
 ```java
-  final String string = "rubens";
+  String string = "rubens";
   Keyword word = null;
   for (int i = 0; i < string.length(); ++i) {
-    final char ch = string.charAt(i);
+    char ch = string.charAt(i);
     word = Keyword.findNext(word, i, ch);
     System.out.println(ch + ": " + word);
     if (word == null)
@@ -118,7 +118,7 @@ The output shows that `Keyword.RUBENS` was in fact matched from the first charac
 
 ### `codegen-maven-plugin`
 
-The [`codegen-maven-plugin`](../maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
+The [`codegen-maven-plugin`](/../../../codegen-maven-plugin) can be used to generate RadixTree enums during the build lifecycle, in a phase such as `generate-sources`.
 
 ## Contributing
 

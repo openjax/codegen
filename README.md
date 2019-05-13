@@ -23,7 +23,7 @@ Please make sure to update tests as appropriate.
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
 
 [radixtree]: /radixtree
-[maven-plugin]: /maven-plugin
+[maven-plugin]: /codegen-maven-plugin
 
 [codegen]: https://en.wikipedia.org/wiki/Code_generation_(compiler)
 [radix-tree]: https://en.wikipedia.org/wiki/Radix_tree
