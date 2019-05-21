@@ -1,4 +1,4 @@
-# OpenJAX CodeGen
+# CodeGen
 
 [![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
