@@ -1,9 +1,9 @@
 # CodeGen Maven Plugin
 
-[![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen-maven-plugin.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen-maven-plugin)
+[![Build Status](https://travis-ci.org/openjax/codegen.svg?1)](https://travis-ci.org/openjax/codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg?1)](https://coveralls.io/github/openjax/codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen-maven-plugin.svg?1)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen-maven-plugin.svg?1)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen-maven-plugin)
 
 The CodeGen Plugin is used to execute auto-generation tools during the Maven build lifecycle, in a phase such as `generate-sources` or `generate-test-sources`.
 

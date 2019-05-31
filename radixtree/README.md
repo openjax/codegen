@@ -1,9 +1,9 @@
 # CodeGen RadixTree
 
-[![Build Status](https://travis-ci.org/openjax/codegen.png)](https://travis-ci.org/openjax/codegen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/exec.svg)](https://www.javadoc.io/doc/org.openjax.codegen/exec)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/exec.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/exec)
+[![Build Status](https://travis-ci.org/openjax/codegen.svg?1)](https://travis-ci.org/openjax/codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg?1)](https://coveralls.io/github/openjax/codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/exec.svg?1)](https://www.javadoc.io/doc/org.openjax.codegen/exec)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/exec.svg?1)](https://mvnrepository.com/artifact/org.openjax.codegen/exec)
 
 ## Introduction
 
