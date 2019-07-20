@@ -103,7 +103,7 @@
     <dependency>
       <groupId>org.openjax.codegen</groupId>
       <artifactId>radixtree</artifactId>
-      <version>0.2.4-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openjax.maven</groupId>
