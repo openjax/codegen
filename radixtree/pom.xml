@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.openjax.codegen</groupId>
     <artifactId>codegen</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5-SNAPSHOT</version>
   </parent>
   <artifactId>radixtree</artifactId>
   <name>OpenJAX CodeGen RadixTree</name>
@@ -33,12 +33,12 @@
     <dependency>
       <groupId>org.libj</groupId>
       <artifactId>util</artifactId>
-      <version>0.8.0</version>
+      <version>0.8.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.libj</groupId>
       <artifactId>test</artifactId>
-      <version>0.7.0</version>
+      <version>0.7.1-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
