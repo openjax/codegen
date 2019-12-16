@@ -20,21 +20,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.openjax.codegen.radixtree.RadixTreeEnumGenerator;
-import org.openjax.maven.mojo.GeneratorMojo;
+import org.apache.maven.project.MavenProject;
 
 /**
  * Maven MOJO for {@link RadixTreeEnumGenerator}.
  */
 @Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="radixtree")
-public final class RadixTreeEnumGeneratorMojo extends GeneratorMojo {
+public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
   @Parameter(property="inFile", required=true)
   private File inFile;
 
@@ -44,10 +44,20 @@ public final class RadixTreeEnumGeneratorMojo extends GeneratorMojo {
   @Parameter(property="inheritsFrom")
   private String inheritsFrom;
 
+  @Parameter(property="destDir", required=true)
+  private File destDir;
+
+  @Parameter(defaultValue="${project}", readonly=true, required=true)
+  private MavenProject project;
+
   @Override
-  public void execute(final Configuration configuration) throws MojoExecutionException, MojoFailureException {
+  public void execute() throws MojoExecutionException, MojoFailureException {
     try {
-      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(configuration.getDestDir(), className.replace('.', '/') + ".java"), new FileReader(inFile));
+      RadixTreeEnumGenerator.generate(className, inheritsFrom, new File(destDir, className.replace('.', '/') + ".java"), new FileReader(inFile));
+
+      // FIXME: Should this be differentiated? Like in GeneratorMojo?
+      project.addTestCompileSourceRoot(destDir.getAbsolutePath());
+      project.addCompileSourceRoot(destDir.getAbsolutePath());
     }
     catch (final IOException e) {
       throw new MojoExecutionException(e.getClass().getSimpleName() + ": " + e.getMessage(), e);

@@ -22,7 +22,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
 
-import org.libj.util.Identifiers;
+import org.libj.lang.Identifiers;
 
 /**
  * Generator for Radix Trees.

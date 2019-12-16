@@ -16,16 +16,28 @@
 
 package org.openjax.codegen.radixtree;
 
+import java.util.Arrays;
+
 import org.junit.Assert;
 import org.junit.Test;
-import org.openjax.codegen.radixtree.Keyword;
-import org.openjax.codegen.radixtree.RadixTreeEnumUtil;
-import org.libj.util.ArrayUtil;
 
 public class RadixTreeEnumTest {
+  private static int[] fillIncremental(final int[] array, int start) {
+    for (int i = 0; i < array.length; ++i)
+      array[i] = start++;
+
+    return array;
+  }
+
+  private static char[] createRepeat(final char value, final int length) {
+    final char[] array = new char[length];
+    Arrays.fill(array, value);
+    return array;
+  }
+
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
-    ArrayUtil.fillIncremental(indices, 0);
+    fillIncremental(indices, 0);
 
     Keyword keyword = null;
     for (int i = 0; i < token.length(); ++i) {
@@ -54,7 +66,7 @@ public class RadixTreeEnumTest {
 
   private static String print(final Keyword[] keywords) {
     final int[] indices = new int[keywords.length];
-    ArrayUtil.fillIncremental(indices, 0);
+    fillIncremental(indices, 0);
 
     final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
@@ -63,7 +75,7 @@ public class RadixTreeEnumTest {
       for (int i = 0; i < keyword.tree.length; ++i)
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i])
-            out.append("\n ").append(ArrayUtil.createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
+            out.append("\n ").append(createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
     }
 
     return out.substring(1);
