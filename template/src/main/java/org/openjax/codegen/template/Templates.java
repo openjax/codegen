@@ -118,25 +118,28 @@ public class Templates {
     return str;
   }
 
-  private static int getClassDeclarationStart(final String str, int fromIndex) {
+  // FIXME: It's possible that this method will return a position inside a
+  // FIXME: comment, if any of the words it's looking for are matched there.
+  // FIXME: Need to detect that we're in a comment, and gloss past it.
+  private static int getClassDeclarationStart(final String str, final int fromIndex) {
     int index = -1;
-    for (int i = fromIndex; i >= 0; --i) {
+    for (int i = fromIndex, from = fromIndex; i >= 0; --i) {
       final char ch = str.charAt(i);
       if (Character.isWhitespace(ch) || i == 0) {
-        if (i != fromIndex - 1) {
-          final String word = str.substring(i + 1, fromIndex);
+        if (i != from - 1) {
+          final String word = str.substring(i + 1, from);
           if ("public".equals(word) || "abstract".equals(word) || "final".equals(word))
             index = i + 1;
           else if (index != -1)
             break;
         }
 
-        fromIndex = i;
+        from = i;
       }
     }
 
     if (index == -1)
-      throw new IllegalStateException();
+      return fromIndex;
 
     return index;
   }
@@ -145,6 +148,40 @@ public class Templates {
     for (final String shortName : shortNames)
       if (matches(line, 0, shortName) != -1)
         seen.add(shortName);
+  }
+
+  // FIXME: This is a broken implementation.
+  // FIXME: It does not properly handle multi-line "{@link " clauses.
+  private static void findImportInComment(final String line, final Set<String> seen) {
+    if (!line.startsWith("*"))
+      return;
+
+    int start = 0;
+    while (true) {
+      int index = line.indexOf("{@link ", start);
+      if (index == -1)
+        index = line.indexOf("{@see ", start);
+
+      if (index == -1)
+        break;
+
+      for (int i = index + 7, stage = 0; i <= line.length(); ++i) {
+        final char ch = i == line.length() ? '\0' : line.charAt(i);
+        if (stage == 0) {
+          if (!Character.isWhitespace(ch)) {
+            stage = 1;
+            start = i;
+          }
+        }
+        else if (stage == 1) {
+          if (Character.isWhitespace(ch) || ch == '}' || ch == '\0') {
+            seen.add(line.substring(start, i));
+            start = i + 1;
+            break;
+          }
+        }
+      }
+    }
   }
 
   public static String render(final File file, final Map<String,String> paramToType, Set<String> imports) throws IOException {
@@ -168,11 +205,12 @@ public class Templates {
         builder.append(line);
 
         if (classStart == -1) {
+          line = line.trim();
+          findImportInComment(line, seen);
           int classIndex = matches(line, 0, "class", "interface", "@interface");
           if (classIndex == -1)
             continue;
 
-          line = line.trim();
           if (line.startsWith("*") || line.startsWith("//"))
             continue;
 
