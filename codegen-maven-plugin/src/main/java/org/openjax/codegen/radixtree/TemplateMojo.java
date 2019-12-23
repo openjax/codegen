@@ -63,18 +63,23 @@ public final class TemplateMojo extends AbstractMojo {
         getLog().info("Template: " + template.getPath());
         for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) {
           final Parameters parameters = entry.getValue();
-          final String rendered = Templates.render(template, parameters.getTypes(), parameters.getImports() == null ? null : new HashSet<>(parameters.getImports()));
-          final String fileName = Templates.render(template.getName(), parameters.getTypes());
-          final File outFile = new File(destDir, fileName);
-          getLog().info("Writing \"" + entry.getKey() + "\": " + outFile.getPath());
-          if (outFile.exists() && !overwrite) {
-            final String content = new String(Files.readAllBytes(outFile.toPath()));
-            if (!content.equals(rendered))
-              throw new MojoExecutionException("Content mismatch for: " + outFile.getAbsolutePath());
+          if (parameters.isSkip()) {
+            getLog().info("Skipping \"" + entry.getKey() + "\"");
           }
           else {
-            destDir.mkdirs();
-            Files.write(outFile.toPath(), rendered.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            final String rendered = Templates.render(template, parameters.getTypes(), parameters.getImports() == null ? null : new HashSet<>(parameters.getImports()));
+            final String fileName = Templates.render(template.getName(), parameters.getTypes());
+            final File outFile = new File(destDir, fileName);
+            getLog().info("Writing \"" + entry.getKey() + "\": " + outFile.getPath());
+            if (outFile.exists() && !overwrite) {
+              final String content = new String(Files.readAllBytes(outFile.toPath()));
+              if (!content.equals(rendered))
+                throw new MojoExecutionException("Content mismatch for: " + outFile.getAbsolutePath());
+            }
+            else {
+              destDir.mkdirs();
+              Files.write(outFile.toPath(), rendered.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            }
           }
         }
       }

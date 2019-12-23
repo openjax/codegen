@@ -23,8 +23,27 @@ import java.util.Map;
  * Bean for the "parameters" configuration for {@link TemplateMojo}.
  */
 public class Parameters {
+  private boolean skip;
   private Map<String,String> types;
   private List<String> imports;
+
+  /**
+   * Returns the "skip" value.
+   *
+   * @return The "skip" value.
+   */
+  public boolean isSkip() {
+    return this.skip;
+  }
+
+  /**
+   * Sets the "skip" value.
+   *
+   * @param skip The "skip" value to set.
+   */
+  public void setSkip(final boolean skip) {
+    this.skip = skip;
+  }
 
   /**
    * Returns the "types" map.
