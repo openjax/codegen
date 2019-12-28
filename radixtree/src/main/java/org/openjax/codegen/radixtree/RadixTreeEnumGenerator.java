@@ -21,13 +21,15 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import org.libj.lang.Identifiers;
 
 /**
  * Generator for Radix Trees.
  */
-public class RadixTreeEnumGenerator {
+public final class RadixTreeEnumGenerator {
+  private static final Pattern whitespacePattern = Pattern.compile("\\s+");
   private static final class Word {
     private final String name;
     private final String identifier;
@@ -57,7 +59,7 @@ public class RadixTreeEnumGenerator {
     final StringBuilder builder = new StringBuilder();
     for (int ch; (ch = reader.read()) != -1; builder.append((char)ch));
 
-    final String in = builder.toString().replaceAll("\\s+", " ");
+    final String in = whitespacePattern.matcher(builder.toString()).replaceAll(" ");
     final String[] tokens = in.split(" ");
     RadixTreeEnumGenerator.generate(className, inheritsFrom, outFile, tokens);
   }
