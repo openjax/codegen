@@ -35,6 +35,7 @@ public class RadixTreeEnumTest {
     return array;
   }
 
+  @SuppressWarnings("null")
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
     fillIncremental(indices, 0);

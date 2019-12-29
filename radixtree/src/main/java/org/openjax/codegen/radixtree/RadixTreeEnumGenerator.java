@@ -136,10 +136,20 @@ public final class RadixTreeEnumGenerator {
 
   public void print(final File file) throws IOException {
     final StringBuilder outer = new StringBuilder();
+    StringBuilder x = null;
+    StringBuilder y = null;
     for (final Word word : words) {
-      final StringBuilder x = new StringBuilder();
+      if (x == null)
+        x = new StringBuilder();
+      else
+        x.setLength(0);
+
       for (int i = 0; i < word.tree.length; ++i) {
-        final StringBuilder y = new StringBuilder();
+        if (y == null)
+          y = new StringBuilder();
+        else
+          y.setLength(0);
+
         if (word.tree[i] != null)
           for (int j = 0; j < word.tree[i].length; ++j)
             y.append(", ").append(word.tree[i][j]);

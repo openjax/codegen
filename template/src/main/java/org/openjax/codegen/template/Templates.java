@@ -79,7 +79,7 @@ public final class Templates {
       final int dot = imp.indexOf('.');
       if (dot != -1) {
         final String basePackage = imp.substring(0, dot);
-        if (i > 0 && (group == null || !group.equals(basePackage)))
+        if (i > 0 && !basePackage.equals(group))
           builder.append('\n');
 
         group = basePackage;
@@ -239,8 +239,14 @@ public final class Templates {
             shortNameToFullName.put(name.substring(name.lastIndexOf('.') + 1), name);
         }
 
+        if (shortNameToFullName == null)
+          throw new IllegalStateException("Should not get here");
+
         filterForImports(line, shortNameToFullName.keySet(), seen);
       }
+
+      if (shortNameToFullName == null)
+        throw new IllegalStateException("Should not get here");
 
       final int serialVersionUIDIndex = builder.indexOf("<serialVersionUID>");
       if (serialVersionUIDIndex != -1) {
