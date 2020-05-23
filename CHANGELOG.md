@@ -1,6 +1,8 @@
 # Changes by Version
 
-## [v0.2.4](https://github.com/openjax/codegen/compare/cdeacd85e8d3e1fd612fe9961ce6702119a38749..HEAD) (2020-05-23)
+## [v0.2.6-SNAPSHOT](https://github.com/openjax/codegen/compare/2f209679af502909410e63aaa112944188ad5fc5..HEAD)
+
+## [v0.2.5](https://github.com/openjax/codegen/compare/cdeacd85e8d3e1fd612fe9961ce6702119a38749..2f209679af502909410e63aaa112944188ad5fc5) (2020-05-23)
 * Add `Parameters` bean for `TemplateMojo`.
 * Revise codegen API to implement `TemplateMojo`.
 * Add `template` submodule.
