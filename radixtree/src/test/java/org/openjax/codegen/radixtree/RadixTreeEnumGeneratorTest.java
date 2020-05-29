@@ -64,7 +64,7 @@ public class RadixTreeEnumGeneratorTest {
       if (e.getCause() instanceof RuntimeException)
         throw (RuntimeException)e.getCause();
 
-      throw new RuntimeException(e);
+      throw new RuntimeException(e.getCause());
     }
   }
 
