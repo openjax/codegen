@@ -1,9 +1,9 @@
 # CodeGen
 
-[![Build Status](https://travis-ci.org/openjax/codegen.svg?1)](https://travis-ci.org/openjax/codegen)
-[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg?1)](https://coveralls.io/github/openjax/codegen)
-[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen.svg?1)](https://www.javadoc.io/doc/org.openjax.codegen/codegen)
-[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen.svg?1)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen)
+[![Build Status](https://travis-ci.org/openjax/codegen.svg?branch=master)](https://travis-ci.org/openjax/codegen)
+[![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
+[![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen)
+[![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen)
 ![Snapshot Version](https://img.shields.io/nexus/s/org.openjax.codegen/codegen?label=maven-snapshot&server=https%3A%2F%2Foss.sonatype.org)
 
 CodeGen is a collection of modules that utilize the [Code Generation][codegen] process to obtain better language cohesion, and faster runtime performance.
