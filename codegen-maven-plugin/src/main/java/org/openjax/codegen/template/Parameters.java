@@ -14,8 +14,9 @@
  * program. If not, see <http://opensource.org/licenses/MIT/>.
  */
 
-package org.openjax.codegen.radixtree;
+package org.openjax.codegen.template;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,27 +24,8 @@ import java.util.Map;
  * Bean for the "parameters" configuration for {@link TemplateMojo}.
  */
 public class Parameters {
-  private boolean skip;
   private Map<String,String> types;
   private List<String> imports;
-
-  /**
-   * Returns the "skip" value.
-   *
-   * @return The "skip" value.
-   */
-  public boolean isSkip() {
-    return this.skip;
-  }
-
-  /**
-   * Sets the "skip" value.
-   *
-   * @param skip The "skip" value to set.
-   */
-  public void setSkip(final boolean skip) {
-    this.skip = skip;
-  }
 
   /**
    * Returns the "types" map.
@@ -79,5 +61,22 @@ public class Parameters {
    */
   public void setImports(final List<String> imports) {
     this.imports = imports;
+  }
+
+  public void remap(final Map<String,String> map) {
+    final Map<String,String> result = new HashMap<>();
+    OUT:
+    for (final Map.Entry<String,String> entry : types.entrySet()) {
+      for (final Map.Entry<String,String> rule : map.entrySet()) {
+        if (entry.getKey().equals(rule.getValue())) {
+          result.put(rule.getKey(), entry.getValue());
+          continue OUT;
+        }
+      }
+
+      result.put(entry.getKey(), entry.getValue());
+    }
+
+    this.types = result;
   }
 }

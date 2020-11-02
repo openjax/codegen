@@ -17,9 +17,8 @@
 package org.openjax.codegen.template;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -138,10 +137,7 @@ public final class Templates {
       }
     }
 
-    if (index == -1)
-      return fromIndex;
-
-    return index;
+    return index == -1 ? fromIndex : index;
   }
 
   private static void filterForImports(final String line, final Set<String> shortNames, final Set<? super String> seen) {
@@ -184,12 +180,12 @@ public final class Templates {
     }
   }
 
-  public static String render(final File file, final Map<String,String> paramToType, Set<String> imports) throws IOException {
+  public static String render(final String template, final Map<String,String> paramToType, Set<String> imports) throws IOException {
     if (imports == null)
       imports = new HashSet<>();
 
     final StringBuilder builder = new StringBuilder();
-    try (final BufferedReader fin = new BufferedReader(new FileReader(file))) {
+    try (final BufferedReader fin = new BufferedReader(new StringReader(template))) {
       int packageEnd = 0;
       int importStart = -1;
       int importEnd = -1;
@@ -197,6 +193,7 @@ public final class Templates {
       LinkedHashMap<String,String> shortNameToFullName = null;
       final Set<String> seen = new HashSet<>();
       String line;
+      boolean hasGenerated = false;
       for (int i = 0; (line = fin.readLine()) != null; ++i) {
         if (i > 0)
           builder.append('\n');
@@ -207,6 +204,9 @@ public final class Templates {
         if (classStart == -1) {
           line = line.trim();
           findImportInComment(line, seen);
+          if (matches(line, 0, "@Generated") != -1)
+            hasGenerated = true;
+
           int classIndex = matches(line, 0, "class", "interface", "@interface");
           if (classIndex == -1)
             continue;
@@ -256,7 +256,8 @@ public final class Templates {
 
       shortNameToFullName.put(Generated.class.getSimpleName(), Generated.class.getName());
       seen.add(Generated.class.getSimpleName());
-      builder.insert(classStart, "@" + Generated.class.getSimpleName() + "(value=\"" + GENERATED_VALUE + "\", date=\"" + GENERATED_DATE + "\")\n");
+      if (!hasGenerated)
+        builder.insert(classStart, "@" + Generated.class.getSimpleName() + "(value=\"" + GENERATED_VALUE + "\", date=\"" + GENERATED_DATE + "\")\n");
 
       shortNameToFullName.keySet().retainAll(seen);
       final String importString = importsToString(new ArrayList<>(shortNameToFullName.values()));

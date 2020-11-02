@@ -33,8 +33,8 @@
     Modules that utilize the "Code Generation" process to obtain better language cohesion and faster runtime performance.
   </description>
   <modules>
-    <module>template</module>
     <module>radixtree</module>
+    <module>template</module>
     <module>codegen-maven-plugin</module>
   </modules>
   <build>

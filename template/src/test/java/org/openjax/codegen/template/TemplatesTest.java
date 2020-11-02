@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,6 +45,6 @@ public class TemplatesTest {
 
     final Set<String> imports = new HashSet<>();
     imports.add("java.util.Objects");
-    return Templates.render(new File(url.getFile()), paramToType, imports);
+    return Templates.render(new String(Files.readAllBytes(new File(url.getFile()).toPath())), paramToType, imports);
   }
 }
