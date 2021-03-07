@@ -22,7 +22,6 @@ import java.io.StringReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -61,15 +60,11 @@ public final class Templates {
   }
 
   private static String importsToString(final List<String> imports) {
-    final StringBuilder builder = new StringBuilder();
     imports.sort(importsComparator);
-
-    final Map<String,String> shortNameToFullName = new HashMap<>();
-    for (final String name : imports)
-      shortNameToFullName.put(name.substring(name.lastIndexOf('.') + 1), name);
 
     String group = null;
     final Iterator<String> iterator = imports.iterator();
+    final StringBuilder builder = new StringBuilder();
     for (int i = 0; iterator.hasNext(); ++i) {
       if (i > 0)
         builder.append('\n');
@@ -140,15 +135,15 @@ public final class Templates {
     return index == -1 ? fromIndex : index;
   }
 
-  private static void filterForImports(final String line, final Set<String> shortNames, final Set<? super String> seen) {
+  private static void filterForImports(final String line, final Set<String> shortNames, final Set<? super String> seenImports) {
     for (final String shortName : shortNames)
       if (matches(line, 0, shortName) != -1)
-        seen.add(shortName);
+        seenImports.add(shortName);
   }
 
   // FIXME: This is a broken implementation.
   // FIXME: It does not properly handle multi-line "{@link " clauses.
-  private static void findImportInComment(final String line, final Set<? super String> seen) {
+  private static void findImportInComment(final String line, final Set<? super String> seenImports) {
     if (!line.startsWith("*"))
       return;
 
@@ -171,7 +166,7 @@ public final class Templates {
         }
         else if (stage == 1) {
           if (Character.isWhitespace(ch) || ch == '}' || ch == '\0') {
-            seen.add(line.substring(start, i));
+            seenImports.add(line.substring(start, i));
             start = i + 1;
             break;
           }
@@ -191,9 +186,10 @@ public final class Templates {
       int importEnd = -1;
       int classStart = -1;
       LinkedHashMap<String,String> shortNameToFullName = null;
-      final Set<String> seen = new HashSet<>();
+      final HashSet<String> seenImports = new HashSet<>();
       String line;
       boolean hasGenerated = false;
+      String packageName = null;
       for (int i = 0; (line = fin.readLine()) != null; ++i) {
         if (i > 0)
           builder.append('\n');
@@ -203,7 +199,7 @@ public final class Templates {
 
         if (classStart == -1) {
           line = line.trim();
-          findImportInComment(line, seen);
+          findImportInComment(line, seenImports);
           if (matches(line, 0, "@Generated") != -1)
             hasGenerated = true;
 
@@ -220,6 +216,7 @@ public final class Templates {
           final int packageIndex = matches(header, 0, "package");
           if (packageIndex != -1) {
             packageEnd = header.indexOf(';', packageIndex + 8) + 1;
+            packageName = header.substring(packageIndex + 8, packageEnd - 1);
           }
 
           for (int start, end = 0; (start = matches(header, end, "import")) != -1;) {
@@ -242,7 +239,7 @@ public final class Templates {
         if (shortNameToFullName == null)
           throw new IllegalStateException("Should not get here");
 
-        filterForImports(line, shortNameToFullName.keySet(), seen);
+        filterForImports(line, shortNameToFullName.keySet(), seenImports);
       }
 
       if (shortNameToFullName == null)
@@ -255,11 +252,20 @@ public final class Templates {
       }
 
       shortNameToFullName.put(Generated.class.getSimpleName(), Generated.class.getName());
-      seen.add(Generated.class.getSimpleName());
+      seenImports.add(Generated.class.getSimpleName());
       if (!hasGenerated)
         builder.insert(classStart, "@" + Generated.class.getSimpleName() + "(value=\"" + GENERATED_VALUE + "\", date=\"" + GENERATED_DATE + "\")\n");
 
-      shortNameToFullName.keySet().retainAll(seen);
+      shortNameToFullName.keySet().retainAll(seenImports);
+      if (packageName != null) {
+        final Iterator<String> iterator = shortNameToFullName.values().iterator();
+        while (iterator.hasNext()) {
+          final String name = iterator.next();
+          if (name.startsWith(packageName + ".") && name.indexOf('.', packageName.length() + 2) == -1)
+            iterator.remove();
+        }
+      }
+
       final String importString = importsToString(new ArrayList<>(shortNameToFullName.values()));
       if (importStart != -1) {
         builder.replace(importStart, importEnd, importString);
