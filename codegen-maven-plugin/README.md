@@ -1,6 +1,6 @@
 # CodeGen Maven Plugin
 
-[![Build Status](https://travis-ci.org/openjax/codegen.svg?branch=master)](https://travis-ci.org/openjax/codegen)
+[![Build Status](https://travis-ic.org/openjax/codegen.svg?branch=master)](https://travis-ic.org/openjax/codegen)
 [![Coverage Status](https://coveralls.io/repos/github/openjax/codegen/badge.svg)](https://coveralls.io/github/openjax/codegen)
 [![Javadocs](https://www.javadoc.io/badge/org.openjax.codegen/codegen-maven-plugin.svg)](https://www.javadoc.io/doc/org.openjax.codegen/codegen-maven-plugin)
 [![Released Version](https://img.shields.io/maven-central/v/org.openjax.codegen/codegen-maven-plugin.svg)](https://mvnrepository.com/artifact/org.openjax.codegen/codegen-maven-plugin)
