@@ -22,7 +22,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RadixTreeEnumTest {
-  private static int[] fillIncremental(final int[] array, int start) {
+  private static int[] fillSequence(final int[] array, int start) {
     for (int i = 0; i < array.length; ++i)
       array[i] = start++;
 
@@ -38,7 +38,7 @@ public class RadixTreeEnumTest {
   @SuppressWarnings("null")
   private static Keyword testToken(final Keyword[] keywords, final String token) {
     int[] indices = new int[keywords.length];
-    fillIncremental(indices, 0);
+    fillSequence(indices, 0);
 
     Keyword keyword = null;
     for (int i = 0; i < token.length(); ++i) {
@@ -67,7 +67,7 @@ public class RadixTreeEnumTest {
 
   private static String print(final Keyword[] keywords) {
     final int[] indices = new int[keywords.length];
-    fillIncremental(indices, 0);
+    fillSequence(indices, 0);
 
     final StringBuilder out = new StringBuilder();
     for (final int index : indices) {
