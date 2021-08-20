@@ -27,18 +27,19 @@
   <artifactId>template</artifactId>
   <name>OpenJAX CodeGen Template</name>
   <description>
-    Lightweight template engine for Java
+    Lightweight template engine for Java.
   </description>
   <dependencies>
-    <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>1.3.2</version>
-    </dependency>
     <dependency>
       <groupId>org.libj</groupId>
       <artifactId>lang</artifactId>
       <version>0.8.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
     </dependency>
   </dependencies>
 </project>
