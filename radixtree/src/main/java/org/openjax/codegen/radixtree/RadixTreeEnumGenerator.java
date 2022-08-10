@@ -57,7 +57,7 @@ public final class RadixTreeEnumGenerator {
       throw new IllegalStateException("Unable to create output path: " + parentFile.getAbsolutePath());
 
     final StringBuilder builder = new StringBuilder();
-    for (int ch; (ch = reader.read()) != -1; builder.append((char)ch));
+    for (int ch; (ch = reader.read()) != -1; builder.append((char)ch)); // [X]
 
     final String in = whitespacePattern.matcher(builder.toString()).replaceAll(" ");
     final String[] tokens = in.split(" ");
@@ -85,11 +85,11 @@ public final class RadixTreeEnumGenerator {
     this.inheritsFrom = inheritsFrom;
     this.words = new Word[tokens.length];
     Arrays.sort(tokens);
-    for (int i = 0; i < tokens.length; ++i)
+    for (int i = 0; i < tokens.length; ++i) // [A]
       words[i] = new Word(tokens[i]);
 
     root = new int[tokens.length];
-    for (int i = 0; i < root.length; ++i)
+    for (int i = 0; i < root.length; ++i) // [A]
       root[i] = i;
 
     init(root, 0);
@@ -99,7 +99,7 @@ public final class RadixTreeEnumGenerator {
 
   protected void init(final int[] keywords, final int depth) {
     traverse(keywords, depth);
-    for (final int keyword : keywords) {
+    for (final int keyword : keywords) { // [A]
       final int[][] tree = words[keyword].tree;
       if (tree[depth] != null)
         init(tree[depth], depth + 1);
@@ -117,7 +117,7 @@ public final class RadixTreeEnumGenerator {
       if (indices == null)
         break;
 
-      for (final int index : indices)
+      for (final int index : indices) // [A]
         words[index].tree[depth] = indices;
 
       l += indices.length;
@@ -138,20 +138,20 @@ public final class RadixTreeEnumGenerator {
     final StringBuilder outer = new StringBuilder();
     StringBuilder x = null;
     StringBuilder y = null;
-    for (final Word word : words) {
+    for (final Word word : words) { // [A]
       if (x == null)
         x = new StringBuilder();
       else
         x.setLength(0);
 
-      for (int i = 0; i < word.tree.length; ++i) {
+      for (int i = 0; i < word.tree.length; ++i) { // [A]
         if (y == null)
           y = new StringBuilder();
         else
           y.setLength(0);
 
         if (word.tree[i] != null)
-          for (int j = 0; j < word.tree[i].length; ++j)
+          for (int j = 0; j < word.tree[i].length; ++j) // [A]
             y.append(", ").append(word.tree[i][j]);
 
         if (y.length() >= 2)
@@ -170,7 +170,7 @@ public final class RadixTreeEnumGenerator {
     code.append(outer.substring(2)).append(";\n\n");
     code.append("  private static final int[] root = new int[] {");
     final StringBuilder root = new StringBuilder();
-    for (int i = 0; i < words.length; ++i)
+    for (int i = 0; i < words.length; ++i) // [A]
       root.append(", ").append(i);
 
     code.append(root.substring(2)).append("};\n");

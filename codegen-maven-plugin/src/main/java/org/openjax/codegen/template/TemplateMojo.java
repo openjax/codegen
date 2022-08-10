@@ -42,9 +42,6 @@ import org.apache.maven.project.MavenProject;
 /**
  * Maven MOJO for {@link Templates}.
  */
-/**
- *
- */
 @Mojo(name="template", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
 @Execute(goal="template")
 public final class TemplateMojo extends AbstractMojo {
@@ -55,7 +52,7 @@ public final class TemplateMojo extends AbstractMojo {
     int variables;
     String name;
     String content;
-    List<String> keys;
+    ArrayList<String> keys;
 
     private Raster(final Raster copy, final String key) {
       this.path = copy.path;
@@ -80,9 +77,9 @@ public final class TemplateMojo extends AbstractMojo {
     }
   }
 
-  private static boolean shouldSkip(final List<String> keys, final List<List<String>> skips) {
-    for (final List<String> skip : skips)
-      if (keys.equals(skip))
+  private static boolean shouldSkip(final ArrayList<String> keys, final ArrayList<List<String>> skips) {
+    for (int i = 0, len = skips.size(); i < len; ++i) // [RA]
+      if (keys.equals(skips.get(i)))
         return true;
 
     return false;
@@ -112,21 +109,21 @@ public final class TemplateMojo extends AbstractMojo {
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     try {
-      final List<List<String>> skips = new ArrayList<>();
-      for (final String skip : this.skips)
+      final ArrayList<List<String>> skips = new ArrayList<>();
+      for (final String skip : this.skips) // [L]
         skips.add(Arrays.asList(skip.split(",")));
 
       getLog().info("overwrite=" + overwrite);
-      final List<Raster> ins = new ArrayList<>(templates.size());
-      for (final File template : templates)
+      final ArrayList<Raster> ins = new ArrayList<>(templates.size());
+      for (final File template : templates) // [L]
         ins.add(new Raster(template));
 
-      final List<Raster> outs = new ArrayList<>();
-      final List<Raster> outs2 = new ArrayList<>();
+      final ArrayList<Raster> outs = new ArrayList<>();
+      final ArrayList<Raster> outs2 = new ArrayList<>();
       do {
-        for (final Raster in : ins) {
-          for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) {
-            final Raster out = new Raster(in, entry.getKey());
+        for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) { // [S]
+          for (int i = 0, len = ins.size(); i < len; ++i) { // [RA]
+            final Raster out = new Raster(ins.get(i), entry.getKey());
             final Parameters params = entry.getValue();
 
             out.content = Templates.render(out.content, params.getTypes(), params.getImports() == null ? null : new HashSet<>(params.getImports()));
@@ -141,12 +138,13 @@ public final class TemplateMojo extends AbstractMojo {
         ins.clear();
         ins.addAll(outs2);
         outs2.clear();
-        for (final Parameters params : parameters.values())
+        for (final Parameters params : parameters.values()) // [C]
           params.remap(alias);
       }
       while (true);
 
-      for (final Raster out : outs) {
+      for (int i = 0, len = outs.size(); i < len; ++i) { // [RA]
+        final Raster out = outs.get(i);
         final File outFile = new File(destDir, out.name);
         if (shouldSkip(out.keys, skips)) {
           getLog().info("Skipping \"" + out.keys + "\"");

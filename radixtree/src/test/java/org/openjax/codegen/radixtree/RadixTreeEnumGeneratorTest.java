@@ -47,7 +47,7 @@ public class RadixTreeEnumGeneratorTest {
     try {
       final Method findNext = enumClass.getMethod("findNext", enumClass, int.class, char.class);
       Enum<?> word = null;
-      for (int i = 0; i < string.length(); ++i) {
+      for (int i = 0; i < string.length(); ++i) { // [N]
         final char ch = string.charAt(i);
         word = (Enum<?>)findNext.invoke(null, word, i, ch);
         logger.info(ch + ": " + word);

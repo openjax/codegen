@@ -45,7 +45,7 @@ public final class Templates {
     if (o2 == null)
       return 1;
 
-    for (final String prefix : prefixes) {
+    for (final String prefix : prefixes) { // [A]
       if (o1.startsWith(prefix))
         return o2.startsWith(prefix) ? o1.compareTo(o2) : -1;
 
@@ -65,7 +65,7 @@ public final class Templates {
     String group = null;
     final Iterator<String> iterator = imports.iterator();
     final StringBuilder builder = new StringBuilder();
-    for (int i = 0; iterator.hasNext(); ++i) {
+    for (int i = 0; iterator.hasNext(); ++i) { // [I]
       if (i > 0)
         builder.append('\n');
 
@@ -94,7 +94,7 @@ public final class Templates {
   }
 
   private static int matches(final String line, final int fromIndex, final String ... words) {
-    for (final String word : words) {
+    for (final String word : words) { // [A]
       final int i = line.indexOf(word, fromIndex);
       if (i != -1 && isBoundaryChar(line, i, true) && isBoundaryChar(line, i + word.length(), false))
         return i;
@@ -104,7 +104,7 @@ public final class Templates {
   }
 
   public static String render(String str, final Map<String,String> paramToType) {
-    for (final Map.Entry<String,String> entry : paramToType.entrySet()) {
+    for (final Map.Entry<String,String> entry : paramToType.entrySet()) { // [S]
       final String value = entry.getValue() != null ? entry.getValue() : "";
       str = str.replace("<" + entry.getKey() + ">", value);
     }
@@ -117,7 +117,7 @@ public final class Templates {
   // FIXME: Need to detect that we're in a comment, and gloss past it.
   private static int getClassDeclarationStart(final String str, final int fromIndex) {
     int index = -1;
-    for (int i = fromIndex, from = fromIndex; i >= 0; --i) {
+    for (int i = fromIndex, from = fromIndex; i >= 0; --i) { // [N]
       final char ch = str.charAt(i);
       if (Character.isWhitespace(ch) || i == 0) {
         if (i != from - 1) {
@@ -136,7 +136,7 @@ public final class Templates {
   }
 
   private static void filterForImports(final String line, final Set<String> shortNames, final Set<? super String> seenImports) {
-    for (final String shortName : shortNames)
+    for (final String shortName : shortNames) // [S]
       if (matches(line, 0, shortName) != -1)
         seenImports.add(shortName);
   }
@@ -156,7 +156,7 @@ public final class Templates {
       if (index == -1)
         break;
 
-      for (int i = index + 7, stage = 0; i <= line.length(); ++i) {
+      for (int i = index + 7, stage = 0; i <= line.length(); ++i) { // [N]
         final char ch = i == line.length() ? '\0' : line.charAt(i);
         if (stage == 0) {
           if (!Character.isWhitespace(ch)) {
@@ -190,8 +190,8 @@ public final class Templates {
       String line;
       boolean hasGenerated = false;
       String packageName = null;
-      for (int i = 0; (line = fin.readLine()) != null; ++i) {
-        if (i > 0)
+      for (int l = 0; (line = fin.readLine()) != null; ++l) { // [X]
+        if (l > 0)
           builder.append('\n');
 
         line = render(line, paramToType);
@@ -219,7 +219,7 @@ public final class Templates {
             packageName = header.substring(packageIndex + 8, packageEnd - 1);
           }
 
-          for (int start, end = 0; (start = matches(header, end, "import")) != -1;) {
+          for (int start, end = 0; (start = matches(header, end, "import")) != -1;) { // [X]
             if (importStart == -1)
               importStart = start;
 
@@ -232,8 +232,10 @@ public final class Templates {
           list.sort(importsComparator);
 
           shortNameToFullName = new LinkedHashMap<>();
-          for (final String name : list)
+          for (int i = 0, i$ = list.size(); i < i$; ++i) { // [RA]
+            final String name = list.get(i);
             shortNameToFullName.put(name.substring(name.lastIndexOf('.') + 1), name);
+          }
         }
 
         if (shortNameToFullName == null)

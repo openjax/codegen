@@ -66,8 +66,8 @@ public class Parameters {
   public void remap(final Map<String,String> map) {
     final Map<String,String> result = new HashMap<>();
     OUT:
-    for (final Map.Entry<String,String> entry : types.entrySet()) {
-      for (final Map.Entry<String,String> rule : map.entrySet()) {
+    for (final Map.Entry<String,String> entry : types.entrySet()) { // [S]
+      for (final Map.Entry<String,String> rule : map.entrySet()) { // [S]
         if (entry.getKey().equals(rule.getValue())) {
           result.put(rule.getKey(), entry.getValue());
           continue OUT;

@@ -95,7 +95,7 @@ Suppose you want to look up the `Keyword` matching the string `"rubens"`:
 ```java
   String string = "rubens";
   Keyword word = null;
-  for (int i = 0; i < string.length(); ++i) {
+  for (int i = 0; i < string.length(); ++i) { // [N]
     char ch = string.charAt(i);
     word = Keyword.findNext(word, i, ch);
     System.out.println(ch + ": " + word);
