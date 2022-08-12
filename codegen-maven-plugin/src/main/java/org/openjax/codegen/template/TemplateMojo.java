@@ -78,7 +78,7 @@ public final class TemplateMojo extends AbstractMojo {
   }
 
   private static boolean shouldSkip(final ArrayList<String> keys, final ArrayList<List<String>> skips) {
-    for (int i = 0, len = skips.size(); i < len; ++i) // [RA]
+    for (int i = 0, i$ = skips.size(); i < i$; ++i) // [RA]
       if (keys.equals(skips.get(i)))
         return true;
 
@@ -122,7 +122,7 @@ public final class TemplateMojo extends AbstractMojo {
       final ArrayList<Raster> outs2 = new ArrayList<>();
       do {
         for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) { // [S]
-          for (int i = 0, len = ins.size(); i < len; ++i) { // [RA]
+          for (int i = 0, i$ = ins.size(); i < i$; ++i) { // [RA]
             final Raster out = new Raster(ins.get(i), entry.getKey());
             final Parameters params = entry.getValue();
 
@@ -143,7 +143,7 @@ public final class TemplateMojo extends AbstractMojo {
       }
       while (true);
 
-      for (int i = 0, len = outs.size(); i < len; ++i) { // [RA]
+      for (int i = 0, i$ = outs.size(); i < i$; ++i) { // [RA]
         final Raster out = outs.get(i);
         final File outFile = new File(destDir, out.name);
         if (shouldSkip(out.keys, skips)) {

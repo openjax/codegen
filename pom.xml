@@ -35,6 +35,7 @@
   <modules>
     <module>radixtree</module>
     <module>template</module>
+    <!--module>precompute</module-->
     <module>codegen-maven-plugin</module>
   </modules>
   <build>

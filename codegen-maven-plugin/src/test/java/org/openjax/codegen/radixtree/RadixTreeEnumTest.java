@@ -23,7 +23,7 @@ import org.junit.Test;
 
 public class RadixTreeEnumTest {
   private static int[] fillSequence(final int[] array, int start) {
-    for (int i = 0; i < array.length; ++i) // [A]
+    for (int i = 0, i$ = array.length; i < i$; ++i) // [A]
       array[i] = start++;
 
     return array;
@@ -41,7 +41,7 @@ public class RadixTreeEnumTest {
     fillSequence(indices, 0);
 
     Keyword keyword = null;
-    for (int i = 0; i < token.length(); ++i) { // [N]
+    for (int i = 0, i$ = token.length(); i < i$; ++i) { // [N]
       final char ch = token.charAt(i);
       if (indices != null) {
         final int index = RadixTreeEnumUtil.binarySearch(keywords, indices, ch, i);
@@ -73,7 +73,7 @@ public class RadixTreeEnumTest {
     for (final int index : indices) { // [A]
       final Keyword keyword = keywords[index];
       out.append('\n').append(keyword);
-      for (int i = 0; i < keyword.tree.length; ++i) // [A]
+      for (int i = 0, i$ = keyword.tree.length; i < i$; ++i) // [A]
         if (keyword.tree[i] != null)
           for (final int child : keyword.tree[i]) // [A]
             out.append("\n ").append(createRepeat(' ', i)).append(keywords[child].toString().substring(i + 1));
