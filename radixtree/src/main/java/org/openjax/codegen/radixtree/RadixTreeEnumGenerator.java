@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import org.libj.lang.Identifiers;
+import org.libj.lang.Strings;
 
 /**
  * Generator for Radix Trees.
@@ -60,7 +61,7 @@ public final class RadixTreeEnumGenerator {
     for (int ch; (ch = reader.read()) != -1; builder.append((char)ch)); // [X]
 
     final String in = whitespacePattern.matcher(builder.toString()).replaceAll(" ");
-    final String[] tokens = in.split(" ");
+    final String[] tokens = Strings.split(in, ' ');
     RadixTreeEnumGenerator.generate(className, inheritsFrom, outFile, tokens);
   }
 

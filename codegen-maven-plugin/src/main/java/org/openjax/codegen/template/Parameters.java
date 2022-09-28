@@ -16,6 +16,7 @@
 
 package org.openjax.codegen.template;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,19 +65,24 @@ public class Parameters {
   }
 
   public void remap(final Map<String,String> map) {
-    final Map<String,String> result = new HashMap<>();
-    OUT:
-    for (final Map.Entry<String,String> entry : types.entrySet()) { // [S]
-      for (final Map.Entry<String,String> rule : map.entrySet()) { // [S]
-        if (entry.getKey().equals(rule.getValue())) {
-          result.put(rule.getKey(), entry.getValue());
-          continue OUT;
+    if (types.size() == 0 || map.size() == 0) {
+      this.types = Collections.EMPTY_MAP;
+    }
+    else {
+      final Map<String,String> result = new HashMap<>();
+      OUT:
+      for (final Map.Entry<String,String> entry : types.entrySet()) { // [S]
+        for (final Map.Entry<String,String> rule : map.entrySet()) { // [S]
+          if (entry.getKey().equals(rule.getValue())) {
+            result.put(rule.getKey(), entry.getValue());
+            continue OUT;
+          }
         }
+
+        result.put(entry.getKey(), entry.getValue());
       }
 
-      result.put(entry.getKey(), entry.getValue());
+      this.types = result;
     }
-
-    this.types = result;
   }
 }

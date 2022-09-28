@@ -38,6 +38,8 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.libj.lang.Strings;
+import org.libj.lang.WrappedArrayList;
 
 /**
  * Maven MOJO for {@link Templates}.
@@ -109,26 +111,42 @@ public final class TemplateMojo extends AbstractMojo {
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     try {
-      final ArrayList<List<String>> skips = new ArrayList<>();
-      for (final String skip : this.skips) // [L]
-        skips.add(Arrays.asList(skip.split(",")));
+      int size = skips.size();
+      final ArrayList<List<String>> skips;
+      if (size == 0) {
+        skips = WrappedArrayList.EMPTY_LIST;
+      }
+      else {
+        skips = new ArrayList<>(size);
+        for (final String skip : this.skips) // [L]
+          skips.add(Arrays.asList(Strings.split(skip, ',')));
+      }
 
       getLog().info("overwrite=" + overwrite);
-      final ArrayList<Raster> ins = new ArrayList<>(templates.size());
-      for (final File template : templates) // [L]
-        ins.add(new Raster(template));
+      size = templates.size();
+      final ArrayList<Raster> ins;
+      if (size == 0) {
+        ins = WrappedArrayList.EMPTY_LIST;
+      }
+      else {
+        ins = new ArrayList<>(size);
+        for (final File template : templates) // [L]
+          ins.add(new Raster(template));
+      }
 
       final ArrayList<Raster> outs = new ArrayList<>();
       final ArrayList<Raster> outs2 = new ArrayList<>();
       do {
-        for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) { // [S]
-          for (int i = 0, i$ = ins.size(); i < i$; ++i) { // [RA]
-            final Raster out = new Raster(ins.get(i), entry.getKey());
-            final Parameters params = entry.getValue();
+        if (parameters.size() > 0) {
+          for (final Map.Entry<String,Parameters> entry : parameters.entrySet()) { // [S]
+            for (int i = 0, i$ = ins.size(); i < i$; ++i) { // [RA]
+              final Raster out = new Raster(ins.get(i), entry.getKey());
+              final Parameters params = entry.getValue();
 
-            out.content = Templates.render(out.content, params.getTypes(), params.getImports() == null ? null : new HashSet<>(params.getImports()));
-            out.name = Templates.render(out.name, params.getTypes());
-            (out.variables-- == 1 ? outs : outs2).add(out);
+              out.content = Templates.render(out.content, params.getTypes(), params.getImports() == null ? null : new HashSet<>(params.getImports()));
+              out.name = Templates.render(out.name, params.getTypes());
+              (out.variables-- == 1 ? outs : outs2).add(out);
+            }
           }
         }
 
@@ -138,8 +156,9 @@ public final class TemplateMojo extends AbstractMojo {
         ins.clear();
         ins.addAll(outs2);
         outs2.clear();
-        for (final Parameters params : parameters.values()) // [C]
-          params.remap(alias);
+        if (parameters.size() > 0)
+          for (final Parameters params : parameters.values()) // [C]
+            params.remap(alias);
       }
       while (true);
 

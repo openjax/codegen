@@ -104,9 +104,11 @@ public final class Templates {
   }
 
   public static String render(String str, final Map<String,String> paramToType) {
-    for (final Map.Entry<String,String> entry : paramToType.entrySet()) { // [S]
-      final String value = entry.getValue() != null ? entry.getValue() : "";
-      str = str.replace("<" + entry.getKey() + ">", value);
+    if (paramToType.size() > 0) {
+      for (final Map.Entry<String,String> entry : paramToType.entrySet()) { // [S]
+        final String value = entry.getValue() != null ? entry.getValue() : "";
+        str = str.replace("<" + entry.getKey() + ">", value);
+      }
     }
 
     return str;
@@ -136,9 +138,10 @@ public final class Templates {
   }
 
   private static void filterForImports(final String line, final Set<String> shortNames, final Set<? super String> seenImports) {
-    for (final String shortName : shortNames) // [S]
-      if (matches(line, 0, shortName) != -1)
-        seenImports.add(shortName);
+    if (shortNames.size() > 0)
+      for (final String shortName : shortNames) // [S]
+        if (matches(line, 0, shortName) != -1)
+          seenImports.add(shortName);
   }
 
   // FIXME: This is a broken implementation.
