@@ -25,7 +25,6 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -59,17 +58,20 @@ public final class Templates {
   private Templates() {
   }
 
-  private static String importsToString(final List<String> imports) {
+  private static String importsToString(final ArrayList<String> imports) {
+    final int size = imports.size();
+    if (size == 0)
+      return "";
+
     imports.sort(importsComparator);
 
     String group = null;
-    final Iterator<String> iterator = imports.iterator();
     final StringBuilder builder = new StringBuilder();
-    for (int i = 0; iterator.hasNext(); ++i) { // [I]
+    for (int i = 0, i$ = imports.size(); i < i$; ++i) { // [RA]
       if (i > 0)
         builder.append('\n');
 
-      final String imp = iterator.next();
+      final String imp = imports.get(i);
       final int dot = imp.indexOf('.');
       if (dot != -1) {
         final String basePackage = imp.substring(0, dot);
@@ -193,7 +195,7 @@ public final class Templates {
       String line;
       boolean hasGenerated = false;
       String packageName = null;
-      for (int l = 0; (line = fin.readLine()) != null; ++l) { // [X]
+      for (int l = 0; (line = fin.readLine()) != null; ++l) { // [ST]
         if (l > 0)
           builder.append('\n');
 

@@ -58,7 +58,7 @@ public final class RadixTreeEnumGenerator {
       throw new IllegalStateException("Unable to create output path: " + parentFile.getAbsolutePath());
 
     final StringBuilder builder = new StringBuilder();
-    for (int ch; (ch = reader.read()) != -1; builder.append((char)ch)); // [X]
+    for (int ch; (ch = reader.read()) != -1; builder.append((char)ch)); // [ST]
 
     final String in = whitespacePattern.matcher(builder.toString()).replaceAll(" ");
     final String[] tokens = Strings.split(in, ' ');
