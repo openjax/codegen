@@ -50,7 +50,7 @@ public class RadixTreeEnumGeneratorTest {
       for (int i = 0, i$ = string.length(); i < i$; ++i) { // [N]
         final char ch = string.charAt(i);
         word = (Enum<?>)findNext.invoke(null, word, i, ch);
-        logger.info(ch + ": " + word);
+        if (logger.isInfoEnabled()) logger.info(ch + ": " + word);
         if (word == null)
           break;
       }
