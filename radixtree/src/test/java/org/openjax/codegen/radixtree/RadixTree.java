@@ -10,6 +10,7 @@ public enum RadixTree {
   RUBICUNDUS("rubicundus", new int[][] {{0, 1, 2, 3, 4, 5, 6}, {3, 4, 5, 6}, {3, 4, 5, 6}, {5, 6}, {5, 6}, {6}});
 
   private static final int[] root = new int[] {0, 1, 2, 3, 4, 5, 6};
+  private static final RadixTree[] values = values();
   private final java.lang.String token;
   final int[][] tree;
 
@@ -20,14 +21,14 @@ public enum RadixTree {
 
   public static RadixTree findNext(final RadixTree previous, final int position, final char ch) {
     if (position == 0) {
-      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), RadixTree.root, ch, position);
-      return index < 0 ? null : RadixTree.values()[index];
+      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(values, RadixTree.root, ch, position);
+      return index < 0 ? null : values[index];
     }
 
     if (position <= previous.tree.length) {
       final int[] tree = previous.tree[position - 1];
-      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(RadixTree.values(), tree, ch, position);
-      return index < 0 ? null : RadixTree.values()[tree[index]];
+      final int index = org.openjax.codegen.radixtree.RadixTreeEnumUtil.binarySearch(values, tree, ch, position);
+      return index < 0 ? null : values[tree[index]];
     }
 
     return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;

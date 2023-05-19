@@ -175,6 +175,7 @@ public final class RadixTreeEnumGenerator {
       root.append(", ").append(i);
 
     code.append(root.substring(2)).append("};\n");
+    code.append("  private static final ").append(enumName).append("[] values = values();\n");
     code.append("  private final ").append(String.class.getName()).append(" token;\n");
     code.append("  final int[][] tree;\n\n");
     code.append("  ").append(enumName).append("(final ").append(String.class.getName()).append(" token, final int[][] tree) {\n");
@@ -184,13 +185,13 @@ public final class RadixTreeEnumGenerator {
 
     code.append("  public static ").append(enumName).append(" findNext(final ").append(enumName).append(" previous, final int position, final char ch) {\n");
     code.append("    if (position == 0) {\n");
-    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), ").append(enumName).append(".root, ch, position);\n");
-    code.append("      return index < 0 ? null : ").append(enumName).append(".values()[index];\n");
+    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(values, ").append(enumName).append(".root, ch, position);\n");
+    code.append("      return index < 0 ? null : values[index];\n");
     code.append("    }\n\n");
     code.append("    if (position <= previous.tree.length) {\n");
     code.append("      final int[] tree = previous.tree[position - 1];\n");
-    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(").append(enumName).append(".values(), tree, ch, position);\n");
-    code.append("      return index < 0 ? null : ").append(enumName).append(".values()[tree[index]];\n");
+    code.append("      final int index = ").append(RadixTreeEnumUtil.class.getName()).append(".binarySearch(values, tree, ch, position);\n");
+    code.append("      return index < 0 ? null : values[tree[index]];\n");
     code.append("    }\n\n");
     code.append("    return previous.token.length() <= position || previous.token.charAt(position) != ch ? null : previous;\n");
     code.append("  }\n\n");
