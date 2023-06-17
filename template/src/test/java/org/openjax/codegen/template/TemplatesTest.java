@@ -24,8 +24,6 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -39,11 +37,11 @@ public class TemplatesTest {
 
   public String process(final String fileName) throws IOException {
     final URL url = ClassLoader.getSystemClassLoader().getResource(fileName);
-    final Map<String,String> paramToType = new HashMap<>();
+    final HashMap<String,String> paramToType = new HashMap<>();
     paramToType.put("t", "byte");
     paramToType.put("T", "Byte");
 
-    final Set<String> imports = new HashSet<>();
+    final HashSet<String> imports = new HashSet<>();
     imports.add("java.util.Objects");
     return Templates.render(new String(Files.readAllBytes(new File(url.getFile()).toPath())), paramToType, imports);
   }
