@@ -9,7 +9,7 @@ public enum RadixTree {
   RUBICON("rubicon", new int[][] {{0, 1, 2, 3, 4, 5, 6}, {3, 4, 5, 6}, {3, 4, 5, 6}, {5, 6}, {5, 6}, {5}}),
   RUBICUNDUS("rubicundus", new int[][] {{0, 1, 2, 3, 4, 5, 6}, {3, 4, 5, 6}, {3, 4, 5, 6}, {5, 6}, {5, 6}, {6}});
 
-  private static final int[] root = new int[] {0, 1, 2, 3, 4, 5, 6};
+  private static final int[] root = {0, 1, 2, 3, 4, 5, 6};
   private static final RadixTree[] values = values();
   private final java.lang.String token;
   final int[][] tree;

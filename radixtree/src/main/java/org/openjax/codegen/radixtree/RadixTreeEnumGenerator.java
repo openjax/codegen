@@ -169,7 +169,7 @@ public final class RadixTreeEnumGenerator {
     code.append("public enum ").append(enumName);
     code.append(inheritsFrom != null ? " implements " + inheritsFrom + " {\n" : " {\n");
     code.append(outer.substring(2)).append(";\n\n");
-    code.append("  private static final int[] root = new int[] {");
+    code.append("  private static final int[] root = {");
     final StringBuilder root = new StringBuilder();
     for (int i = 0, i$ = words.length; i < i$; ++i) // [A]
       root.append(", ").append(i);
