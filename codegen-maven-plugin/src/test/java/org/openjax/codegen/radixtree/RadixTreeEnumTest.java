@@ -59,7 +59,7 @@ public class RadixTreeEnumTest {
 
   private static void assertEquals(final Keyword expected, final Keyword actual) {
     if (actual == null)
-      Assert.fail("actual == null");
+      Assert.fail("actual is null");
 
     if (expected != actual)
       Assert.fail(actual + " != " + actual);
