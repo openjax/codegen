@@ -138,7 +138,7 @@ public final class Templates {
     return index == -1 ? fromIndex : index;
   }
 
-  private static void filterForImports(final String line, final Set<String> shortNames, final HashSet<? super String> seenImports) {
+  private static void filterForImports(final String line, final Set<String> shortNames, final HashSet<String> seenImports) {
     if (shortNames.size() > 0)
       for (final String shortName : shortNames) // [S]
         if (matches(line, 0, shortName) != -1)
@@ -147,7 +147,7 @@ public final class Templates {
 
   // FIXME: This is a broken implementation.
   // FIXME: It does not properly handle multi-line "{@link " clauses.
-  private static void findImportInComment(final String line, final HashSet<? super String> seenImports) {
+  private static void findImportInComment(final String line, final HashSet<String> seenImports) {
     if (!line.startsWith("*"))
       return;
 
