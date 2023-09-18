@@ -22,11 +22,11 @@
   <parent>
     <groupId>org.openjax</groupId>
     <artifactId>openjax</artifactId>
-    <version>2.5.6-SNAPSHOT</version>
+    <version>2.5.6</version>
   </parent>
   <groupId>org.openjax.codegen</groupId>
   <artifactId>codegen</artifactId>
-  <version>0.2.6-SNAPSHOT</version>
+  <version>0.2.6</version>
   <packaging>pom</packaging>
   <name>OpenJAX CodeGen</name>
   <description>
