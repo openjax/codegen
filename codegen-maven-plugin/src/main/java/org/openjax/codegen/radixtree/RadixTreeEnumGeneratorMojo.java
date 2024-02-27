@@ -32,22 +32,22 @@ import org.apache.maven.project.MavenProject;
 /**
  * Maven MOJO for {@link RadixTreeEnumGenerator}.
  */
-@Mojo(name="radixtree", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
-@Execute(goal="radixtree")
+@Mojo(name = "radixtree", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+@Execute(goal = "radixtree")
 public final class RadixTreeEnumGeneratorMojo extends AbstractMojo {
-  @Parameter(property="inFile", required=true)
+  @Parameter(property = "inFile", required = true)
   private File inFile;
 
-  @Parameter(property="className", required=true)
+  @Parameter(property = "className", required = true)
   private String className;
 
-  @Parameter(property="inheritsFrom")
+  @Parameter(property = "inheritsFrom")
   private String inheritsFrom;
 
-  @Parameter(property="destDir", required=true)
+  @Parameter(property = "destDir", required = true)
   private File destDir;
 
-  @Parameter(defaultValue="${project}", readonly=true, required=true)
+  @Parameter(defaultValue = "${project}", readonly = true, required = true)
   private MavenProject project;
 
   @Override

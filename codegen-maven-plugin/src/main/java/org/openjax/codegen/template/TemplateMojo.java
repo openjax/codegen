@@ -44,8 +44,8 @@ import org.libj.lang.WrappedArrayList;
 /**
  * Maven MOJO for {@link Templates}.
  */
-@Mojo(name="template", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
-@Execute(goal="template")
+@Mojo(name = "template", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+@Execute(goal = "template")
 public final class TemplateMojo extends AbstractMojo {
   private static class Raster {
     private static final Pattern pattern = Pattern.compile("<.>");
@@ -87,25 +87,25 @@ public final class TemplateMojo extends AbstractMojo {
     return false;
   }
 
-  @Parameter(property="templates", required=true)
+  @Parameter(property = "templates", required = true)
   private List<File> templates;
 
-  @Parameter(property="destDir", required=true)
+  @Parameter(property = "destDir", required = true)
   private File destDir;
 
-  @Parameter(property="parameters", required=true)
+  @Parameter(property = "parameters", required = true)
   private Map<String,Parameters> parameters;
 
-  @Parameter(property="skips", required=false)
+  @Parameter(property = "skips", required = false)
   private List<String> skips;
 
-  @Parameter(property="alias", required=false)
+  @Parameter(property = "alias", required = false)
   private Map<String,String> alias;
 
-  @Parameter(defaultValue="${project}", readonly=true, required=true)
+  @Parameter(defaultValue = "${project}", readonly = true, required = true)
   private MavenProject project;
 
-  @Parameter(property="overwrite")
+  @Parameter(property = "overwrite")
   private boolean overwrite = true;
 
   @Override

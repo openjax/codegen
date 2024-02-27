@@ -31,6 +31,7 @@ import org.libj.lang.Strings;
  */
 public final class RadixTreeEnumGenerator {
   private static final Pattern whitespacePattern = Pattern.compile("\\s+");
+
   private static final class Word {
     private final String name;
     private final String identifier;

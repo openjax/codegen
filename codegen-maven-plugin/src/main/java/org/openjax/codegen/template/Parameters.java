@@ -34,7 +34,7 @@ public class Parameters {
    * @return The "types" map.
    */
   public Map<String,String> getTypes() {
-    return this.types;
+    return types;
   }
 
   /**
@@ -52,7 +52,7 @@ public class Parameters {
    * @return The "imports" list.
    */
   public List<String> getImports() {
-    return this.imports;
+    return imports;
   }
 
   /**
