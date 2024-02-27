@@ -1,11 +1,14 @@
 # Changes by Version
 
-## [v0.3.0-SNAPSHOT](https://github.com/libj/util/compare/2f6e5ef0b8724a9982f3060d951ec8b683d5ead8..HEAD)
+## [v0.3.1-SNAPSHOT](https://github.com/libj/util/compare/297fd626f4af4f6fe4f382a81f684dc8ba009945..HEAD)
+
+## [v0.3.0](https://github.com/libj/util/compare/2f6e5ef0b8724a9982f3060d951ec8b683d5ead8..297fd626f4af4f6fe4f382a81f684dc8ba009945) (2024-02-27)
+* #6 Apply auto-formatting
 
 ## [v0.2.6](https://github.com/openjax/codegen/compare/2f209679af502909410e63aaa112944188ad5fc5..2f6e5ef0b8724a9982f3060d951ec8b683d5ead8) (2023-09-20)
 * #4 Omit imports for classes in the same package
 * #3 Transition to GitHub Actions
-* #2 Support <X> * <Y> combinations in Template generator
+* #2 Support `<X>` * `<Y>` combinations in `Template` generator
 * #1 Inherit Maven dependency versions from root POM
 
 ## [v0.2.5](https://github.com/openjax/codegen/compare/cdeacd85e8d3e1fd612fe9961ce6702119a38749..2f209679af502909410e63aaa112944188ad5fc5) (2020-05-23)
