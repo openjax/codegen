@@ -39,7 +39,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.libj.lang.Strings;
-import org.libj.lang.WrappedArrayList;
+import org.libj.lang.ToArrayList;
 
 /**
  * Maven MOJO for {@link Templates}.
@@ -114,7 +114,7 @@ public final class TemplateMojo extends AbstractMojo {
       int size = skips.size();
       final ArrayList<List<String>> skips;
       if (size == 0) {
-        skips = WrappedArrayList.EMPTY_LIST;
+        skips = ToArrayList.EMPTY_LIST;
       }
       else {
         skips = new ArrayList<>(size);
@@ -126,7 +126,7 @@ public final class TemplateMojo extends AbstractMojo {
       size = templates.size();
       final ArrayList<Raster> ins;
       if (size == 0) {
-        ins = WrappedArrayList.EMPTY_LIST;
+        ins = ToArrayList.EMPTY_LIST;
       }
       else {
         ins = new ArrayList<>(size);
