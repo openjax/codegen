@@ -253,7 +253,7 @@ public final class Templates {
 
       final int serialVersionUIDIndex = builder.indexOf("<serialVersionUID>");
       if (serialVersionUIDIndex != -1) {
-        final long serialVersionUID = Strings.hash(builder.substring(classStart));
+        final long serialVersionUID = Strings.hashAsLong(builder.substring(classStart));
         builder.replace(serialVersionUIDIndex, serialVersionUIDIndex + 18, serialVersionUID + "L");
       }
 
